@@ -9,6 +9,7 @@ import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './login/login.component';
 import {AddPageComponent} from './pages/add-page/add-page.component';
 import {UpdatePageComponent} from './pages/update-page/update-page.component';
+import {UpdateUserComponent} from './users/update-user/update-user.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -18,7 +19,8 @@ const routes:Routes=[
   {path:'users',component:UsersComponent},
   {path:'login',component:LoginComponent},
   {path:'addPage',component:AddPageComponent},
-  {path:'updatePage',component:UpdatePageComponent}
+  {path:'updatePage',component:UpdatePageComponent},
+  {path:'updateUser',component:UpdateUserComponent},
 ]
 
 

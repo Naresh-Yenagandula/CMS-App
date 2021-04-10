@@ -4,27 +4,25 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <mat-card>
-      <form action="" method="post" class="tp-form">
+      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()" class="tp-form">
         <h3 style="text-align: center;">DCX CMS</h3>
         <div>
           <mat-form-field appearance="outline" class="tp-full-width">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="email" required>
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="email.hasError('required')">Email is Required</mat-error>
+            <input matInput placeholder="pat@example.com" formControlName="email" required>
+            <mat-error *ngIf="loginForm.get('email').errors?.required">Email Id is required</mat-error>
+            <mat-error *ngIf = "loginForm.get('email').errors?.email">Email Id is Invalid</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="tp-full-width">
             <mat-label>Enter your Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
             <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <mat-error *ngIf="password.hasError('required')">Password is Required</mat-error>
+            <mat-error *ngIf="loginForm.get('password').errors?.required">Password is Required</mat-error>
           </mat-form-field>
         </div>
         <mat-checkbox>Remember me</mat-checkbox>
-        <button class="btn btn-lg btn-primary btn-block">Sign In</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Sign In</button>
       </form>
       </mat-card>
     </div>

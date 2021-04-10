@@ -1,31 +1,32 @@
 <div style="padding-left: 20px;">
   <h3>Update Page</h3>
-  <form action="/dashboard" method="post" class="tp-form" style="text-align: center;">
+  <form class="tp-form" (ngSubmit)="updateForm.valid && onSubmit()" [formGroup]='updateForm' style="text-align: center;">
+
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
-      <input matInput [formControl]='title'>
-      <mat-error>Page Title is Required</mat-error>
+      <input matInput formControlName='title' pattern="[a-zA-Z0-9\s]+">
+        <mat-error *ngIf="updateForm.get('title').errors?.required">Title is Required</mat-error>
+        <mat-error *ngIf="updateForm.get('title').errors?.maxlength">Title should not have more than 15 characters</mat-error>
+        <mat-error *ngIf="updateForm.get('title').errors?.minlength">Title must be at least 5 characters</mat-error>
+        <mat-error *ngIf="updateForm.get('title').errors?.pattern">Special characters not allowed</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Category</mat-label>
-      <!-- <input matInput list='category'> -->
-      <mat-select [formControl]='categorySelected'>
-        <mat-option value="category one">category one</mat-option>
-        <mat-option value="category two">category two</mat-option>
-        <mat-option value="category three">category three</mat-option>
+      <mat-select formControlName='categorySelected' >
+        <mat-option *ngFor="let cat of category" [value]="cat">{{cat}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="categorySelected.hasError('required')">You must make a selection</mat-error>
+      <mat-error *ngIf="updateForm.get('categorySelected').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Author</mat-label>
-      <!-- <input matInput list='category'> -->
-      <mat-select [formControl]='authorSelected'>
-        <mat-option value="1">Author one</mat-option>
-        <mat-option value="2">Author two</mat-option>
-        <mat-option value="3">Author three</mat-option>
+      <mat-select formControlName='authorSelected'>
+        <mat-option *ngFor="let name of author" [value]="name">{{name}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="authorSelected.hasError('required')">You must make a selection</mat-error>
+      <mat-error *ngIf="updateForm.get('authorSelected').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
+
     <button type="submit" mat-raised-button class="btn-color">Update Page</button>
   </form>
 </div>

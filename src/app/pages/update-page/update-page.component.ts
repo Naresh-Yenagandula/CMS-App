@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-update-page',
@@ -7,12 +7,22 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./update-page.component.css']
 })
 export class UpdatePageComponent implements OnInit {
-  title = new FormControl('',[Validators.required]);
-  categorySelected = new FormControl('',[Validators.required]);
-  authorSelected = new FormControl('',[Validators.required]);
-  constructor() { }
+  updateForm:FormGroup;
+
+  category = ['category one','category two', 'category three'];
+  author = ['John Wick','Vicky Nash','Jenni lora','Austen Paige'];
+  constructor(private fb:FormBuilder) { }
+
+  onSubmit():void{
+    console.log(this.updateForm.value);
+  }
 
   ngOnInit(): void {
+    this.updateForm = this.fb.group({
+      title:['',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]],
+      categorySelected:['',[Validators.required]],
+      authorSelected:['',[Validators.required]]
+    })
   }
 
 }

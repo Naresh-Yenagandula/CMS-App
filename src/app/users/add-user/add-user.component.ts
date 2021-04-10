@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -8,14 +8,20 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-
-groupSelected = new FormControl('',[Validators.required]);
-  full_name = new FormControl('',[Validators.required]);
-  email = new FormControl('',[Validators.required,Validators.email]);
-  
-  constructor() { }
+  userForm:FormGroup;
+  group=['Admin','Registered'];
+  constructor(private fb:FormBuilder) { }
+  onSubmit():void{
+    console.log(this.userForm.value);
+    
+  }
 
   ngOnInit(): void {
+    this.userForm=this.fb.group({
+      full_name:['',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]],
+      email:['',[Validators.required,Validators.email]],
+      groupSelected:['',Validators.required]
+    })
   }
 
 }

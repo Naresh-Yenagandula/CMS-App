@@ -1,31 +1,26 @@
 <div style="padding-left: 20px;">
   <h3>Add User Account</h3>
-  <form action="/dashboard" method="post" class="tp-form" style="text-align: center;">
+  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" class="tp-form" style="text-align: center;">
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Full Name</mat-label>
-      <input matInput [formControl]='full_name'>
-      <mat-error>Full Name is Required</mat-error>
+      <input matInput formControlName='full_name' pattern="[A-Za-z\s]+">
+      <mat-error *ngIf="userForm.get('full_name').errors?.required">Full Name is Required</mat-error>
+      <mat-error *ngIf="userForm.get('full_name').errors?.minlength">Full Name must be at least 5 characters</mat-error>
+      <mat-error *ngIf="userForm.get('full_name').errors?.maxlength">Full Name should not have more than 20 characters</mat-error>
+      <mat-error *ngIf="userForm.get('full_name').errors?.pattern">Numbers and Special characters are not allowed</mat-error>
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Email</mat-label>
-      <input matInput [formControl]='email'>
-
-      <!-- <input matInput list='category'> -->
-
-      <mat-error>
-        <span *ngIf="email.hasError('required')">Email is Required</span>
-        <span *ngIf="email.hasError('email')">Enter Valid Email</span>
-      </mat-error>
+      <input matInput formControlName='email'>
+      <mat-error *ngIf="userForm.get('email').errors?.required">Email is Required</mat-error>
+      <mat-error *ngIf="userForm.get('email').errors?.email">Email is invalid</mat-error>
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Group</mat-label>
-      <!-- <input matInput list='category'> -->
-      <mat-select [formControl]='groupSelected'>
-        <mat-option value="Admin">Admin</mat-option>
-        <mat-option value="Registered">Registered</mat-option>
-
+      <mat-select formControlName='groupSelected'>
+        <mat-option *ngFor='let name of group' [value]="name">{{name}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="groupSelected.hasError('required')">You must make a selection</mat-error>
+      <mat-error *ngIf="userForm.get('groupSelected').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
     <button type="submit" mat-raised-button class="btn-color">Add User</button>
   </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-update-user',
@@ -8,12 +8,19 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class UpdateUserComponent implements OnInit {
 
-  full_name = new FormControl('',[Validators.required]);
-  email = new FormControl('',[Validators.required,Validators.email]);
-  groupSelected = new FormControl('',[Validators.required]);
-  constructor() { }
-
-  ngOnInit(): void {
+  userForm:FormGroup;
+  group=['Admin','Registered'];
+  constructor(private fb:FormBuilder) { }
+  onSubmit():void{
+    console.log(this.userForm.value);
+    
   }
 
+  ngOnInit(): void {
+    this.userForm=this.fb.group({
+      full_name:['',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]],
+      email:['',[Validators.required,Validators.email]],
+      groupSelected:['',Validators.required]
+    })
+  }
 }

@@ -14,6 +14,8 @@ import {AddUserComponent} from './users/add-user/add-user.component';
 import {UpdateUserComponent} from './users/update-user/update-user.component';
 import {AddCategoriesComponent} from './categories/add-categories/add-categories.component';
 import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
+import {GetCategoriesComponent} from './categories/get-categories/get-categories.component';
+import {GetUsersComponent} from './users/get-users/get-users.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -24,15 +26,19 @@ const routes:Routes=[
       {path:'addPage',component:AddPageComponent},
       {path:'updatePage',component:UpdatePageComponent}
     ]},
-  {path:'categories',component:CategoriesComponent},
-  {path:'users',component:UsersComponent},
+  {path:'categories',component:CategoriesComponent,
+    children:[
+      {path:'',component:GetCategoriesComponent},
+      {path:'addCategory',component:AddCategoriesComponent},
+      {path:'updateCategory',component:UpdateCategoriesComponent}
+    ]},
+  {path:'users',component:UsersComponent,
+    children:[
+      {path:'',component:GetUsersComponent},
+      {path:'addUser',component:AddUserComponent},
+      {path:'updateUser',component:UpdateUserComponent}
+    ]},
   {path:'login',component:LoginComponent},
-  {path:'addPage',component:AddPageComponent},
-  {path:'updatePage',component:UpdatePageComponent},
-  {path:'addUser',component:AddUserComponent},
-  {path:'updateUser',component:UpdateUserComponent},
-  {path:'addCategory',component:AddCategoriesComponent},
-  {path:'updateCategory',component:UpdateCategoriesComponent}
 ]
 
 

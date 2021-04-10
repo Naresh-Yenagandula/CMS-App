@@ -30,6 +30,8 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
 import { GetPagesComponent } from './pages/get-pages/get-pages.component';
+import { GetCategoriesComponent } from './categories/get-categories/get-categories.component';
+import { GetUsersComponent } from './users/get-users/get-users.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { GetPagesComponent } from './pages/get-pages/get-pages.component';
     UpdateUserComponent,
     DeleteUserComponent,
     GetPagesComponent,
+    GetCategoriesComponent,
+    GetUsersComponent,
   ],
   imports: [
     BrowserModule,

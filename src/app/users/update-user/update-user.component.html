@@ -54,8 +54,8 @@
                     <mat-label>Group</mat-label>
                     <!-- <input matInput list='Group'> -->
                     <mat-select [formControl]='groupSelected'>
-                        <mat-option value="1">Admin</mat-option>
-                        <mat-option value="2">Registered</mat-option>
+                        <mat-option value="Admin">Admin</mat-option>
+                        <mat-option value="Registered">Registered</mat-option>
                     </mat-select>
                     <mat-error *ngIf="groupSelected.hasError('required')">You must make a selection</mat-error>
                 </mat-form-field>

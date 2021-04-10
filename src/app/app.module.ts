@@ -18,6 +18,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import { NavbarComponent } from './defaults/navbar/navbar.component';
 import { FooterComponent } from './defaults/footer/footer.component';
+import { AddCategoriesComponent } from './categories/add-categories/add-categories.component';
+import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
+import { DeleteCategoriesComponent } from './categories/delete-categories/delete-categories.component';
+import { AddPageComponent } from './pages/add-page/add-page.component';
+import { UpdatePageComponent } from './pages/update-page/update-page.component';
+import { DeletePageComponent } from './pages/delete-page/delete-page.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
+import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { DeleteUserComponent } from './users/delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +38,15 @@ import { FooterComponent } from './defaults/footer/footer.component';
     LoginComponent,
     NavbarComponent,
     FooterComponent,
+    AddCategoriesComponent,
+    UpdateCategoriesComponent,
+    DeleteCategoriesComponent,
+    AddPageComponent,
+    UpdatePageComponent,
+    DeletePageComponent,
+    AddUserComponent,
+    UpdateUserComponent,
+    DeleteUserComponent,
   ],
   imports: [
     BrowserModule,

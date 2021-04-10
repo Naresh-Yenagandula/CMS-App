@@ -3,6 +3,9 @@
 .navbar {
     border-radius: 0;
 }
+.fixed-bottom{
+    position:fixed;
+}
 /* .list-group a:{
     background-color: blue;
 }  */

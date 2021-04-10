@@ -11,6 +11,7 @@ import {AddPageComponent} from './pages/add-page/add-page.component';
 import {UpdatePageComponent} from './pages/update-page/update-page.component';
 import {GetPagesComponent} from './pages/get-pages/get-pages.component';
 import {AddUserComponent} from './users/add-user/add-user.component';
+import {UpdateUserComponent} from './users/update-user/update-user.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -26,7 +27,8 @@ const routes:Routes=[
   {path:'login',component:LoginComponent},
   {path:'addPage',component:AddPageComponent},
   {path:'updatePage',component:UpdatePageComponent},
-  {path:'addUser',component:AddUserComponent}
+  {path:'addUser',component:AddUserComponent},
+  {path:'updateUser',component:UpdateUserComponent},
 ]
 
 

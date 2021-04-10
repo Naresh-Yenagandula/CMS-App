@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-categories',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-categories.component.css']
 })
 export class AddCategoriesComponent implements OnInit {
-
+  title = new FormControl('',[Validators.required]);
+ 
   constructor() { }
+
+  
 
   ngOnInit(): void {
   }

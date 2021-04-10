@@ -12,6 +12,8 @@ import {UpdatePageComponent} from './pages/update-page/update-page.component';
 import {GetPagesComponent} from './pages/get-pages/get-pages.component';
 import {AddUserComponent} from './users/add-user/add-user.component';
 import {UpdateUserComponent} from './users/update-user/update-user.component';
+import {AddCategoriesComponent} from './categories/add-categories/add-categories.component';
+import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -29,6 +31,8 @@ const routes:Routes=[
   {path:'updatePage',component:UpdatePageComponent},
   {path:'addUser',component:AddUserComponent},
   {path:'updateUser',component:UpdateUserComponent},
+  {path:'addCategory',component:AddCategoriesComponent},
+  {path:'updateCategory',component:UpdateCategoriesComponent}
 ]
 
 

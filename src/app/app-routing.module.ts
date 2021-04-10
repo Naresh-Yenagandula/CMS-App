@@ -7,6 +7,8 @@ import {PagesComponent} from './pages/pages.component';
 import {CategoriesComponent} from './categories/categories.component';
 import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './login/login.component';
+import {AddPageComponent} from './pages/add-page/add-page.component';
+import {UpdatePageComponent} from './pages/update-page/update-page.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -14,7 +16,9 @@ const routes:Routes=[
   {path:'pages',component:PagesComponent},
   {path:'categories',component:CategoriesComponent},
   {path:'users',component:UsersComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'addPage',component:AddPageComponent},
+  {path:'updatePage',component:UpdatePageComponent}
 ]
 
 

@@ -16,6 +16,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+
 import { NavbarComponent } from './defaults/navbar/navbar.component';
 import { FooterComponent } from './defaults/footer/footer.component';
 import { AddCategoriesComponent } from './categories/add-categories/add-categories.component';
@@ -27,6 +29,7 @@ import { DeletePageComponent } from './pages/delete-page/delete-page.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +62,8 @@ import { DeleteUserComponent } from './users/delete-user/delete-user.component';
     FormsModule,
     MatIconModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
 
   ],
   providers: [],

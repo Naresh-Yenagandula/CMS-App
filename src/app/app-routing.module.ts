@@ -10,6 +10,7 @@ import {LoginComponent} from './login/login.component';
 import {AddPageComponent} from './pages/add-page/add-page.component';
 import {UpdatePageComponent} from './pages/update-page/update-page.component';
 import {GetPagesComponent} from './pages/get-pages/get-pages.component';
+import {AddUserComponent} from './users/add-user/add-user.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
@@ -24,7 +25,8 @@ const routes:Routes=[
   {path:'users',component:UsersComponent},
   {path:'login',component:LoginComponent},
   {path:'addPage',component:AddPageComponent},
-  {path:'updatePage',component:UpdatePageComponent}
+  {path:'updatePage',component:UpdatePageComponent},
+  {path:'addUser',component:AddUserComponent}
 ]
 
 

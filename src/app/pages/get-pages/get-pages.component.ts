@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute,Router} from '@angular/router';
 
 @Component({
   selector: 'app-get-pages',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetPagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  updatePage():void{
+    this.router.navigate(['updatePage'],{relativeTo:this.route});
+  }
 }

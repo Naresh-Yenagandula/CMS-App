@@ -1,31 +1,31 @@
 <div style="padding-left: 20px;">
   <h3>Add Page</h3>
-  <form action="/dashboard" method="post" class="tp-form" style="text-align: center;">
+  <form class="tp-form" (ngSubmit)="onSubmit()" [formGroup]='addForm' style="text-align: center;">
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
-      <input matInput [formControl]='title'>
+      <input [class.is-invaild] ="addForm.get('title').invalid" matInput formControlName='title'>
       <mat-error>Page Title is Required</mat-error>
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Category</mat-label>
       <!-- <input matInput list='category'> -->
-      <mat-select [formControl]='categorySelected'>
+      <mat-select formControlName='categorySelected'>
         <mat-option value="category one">category one</mat-option>
         <mat-option value="category two">category two</mat-option>
         <mat-option value="category three">category three</mat-option>
       </mat-select>
-      <mat-error *ngIf="categorySelected.hasError('required')">You must make a selection</mat-error>
+      <!-- <mat-error *ngIf="categorySelected.hasError('required')">You must make a selection</mat-error> -->
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Author</mat-label>
       <!-- <input matInput list='category'> -->
-      <mat-select [formControl]='authorSelected'>
+      <mat-select formControlName='authorSelected'>
         <mat-option value="1">Author one</mat-option>
         <mat-option value="2">Author two</mat-option>
         <mat-option value="3">Author three</mat-option>
       </mat-select>
-      <mat-error *ngIf="authorSelected.hasError('required')">You must make a selection</mat-error>
+      <!-- <mat-error *ngIf="authorSelected.hasError('required')">You must make a selection</mat-error> -->
     </mat-form-field>
-    <button type="submit" mat-raised-button class="btn-color">Add Page</button>
+    <button [disabled]='addForm.invalid' type="submit" mat-raised-button class="btn-color">Add Page</button>
   </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-page',
@@ -7,12 +7,20 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit {
-  title = new FormControl('',[Validators.required]);
-  categorySelected = new FormControl('',[Validators.required]);
-  authorSelected = new FormControl('',[Validators.required]);
-  constructor() { }
+  addForm:FormGroup;
+
+  constructor(private fb:FormBuilder) { }
+  onSubmit():void{
+    console.log(this.addForm.value);
+    
+  }
 
   ngOnInit(): void {
+    this.addForm = this.fb.group({
+      title:['',[Validators.required]],
+      categorySelected:['',[Validators.required]],
+      authorSelected:['',[Validators.required]]
+    })
   }
 
 }

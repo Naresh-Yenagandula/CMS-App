@@ -29,6 +29,7 @@ import { DeletePageComponent } from './pages/delete-page/delete-page.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
+import { GetPagesComponent } from './pages/get-pages/get-pages.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { DeleteUserComponent } from './users/delete-user/delete-user.component';
     AddUserComponent,
     UpdateUserComponent,
     DeleteUserComponent,
+    GetPagesComponent,
   ],
   imports: [
     BrowserModule,

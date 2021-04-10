@@ -9,11 +9,17 @@ import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './login/login.component';
 import {AddPageComponent} from './pages/add-page/add-page.component';
 import {UpdatePageComponent} from './pages/update-page/update-page.component';
+import {GetPagesComponent} from './pages/get-pages/get-pages.component';
 
 const routes:Routes=[
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent},
-  {path:'pages',component:PagesComponent},
+  {path:'pages',component:PagesComponent,
+    children:[
+      {path:'',component:GetPagesComponent},
+      {path:'addPage',component:AddPageComponent},
+      {path:'updatePage',component:UpdatePageComponent}
+    ]},
   {path:'categories',component:CategoriesComponent},
   {path:'users',component:UsersComponent},
   {path:'login',component:LoginComponent},

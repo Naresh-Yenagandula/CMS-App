@@ -16,6 +16,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import { NavbarComponent } from './defaults/navbar/navbar.component';
+import { FooterComponent } from './defaults/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {MatButtonModule} from '@angular/material/button';
     PagesComponent,
     CategoriesComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,9 +3,6 @@
 .navbar {
     border-radius: 0;
 }
-.fixed-bottom{
-    position:fixed;
-}
 /* .list-group a:{
     background-color: blue;
 }  */
@@ -60,13 +57,13 @@ body#login h2{
     border-top-right-radius: 0;
 }
 
-
-
 footer{
-    margin-top: 30px;
-    padding-top: 20px;
-    height: 60px;
+    position: fixed;
     text-align: center;
+    padding-top: 10px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #1f87c2;
     color: white;
 }

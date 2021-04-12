@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {passwordValidator} from './password.validator';
+import {MustMatch} from './password.validator';
 
 @Component({
   selector: 'app-change-password',
@@ -19,7 +19,7 @@ export class ChangePasswordComponent implements OnInit {
       old:['',[Validators.required]],
       new:['',[Validators.required,Validators.minLength(8),Validators.maxLength(15)]],
       confirm:['',[Validators.required,Validators.minLength(8),Validators.maxLength(15)]]
-    })
+    },{validator:MustMatch('new','confirm')})
   }
 
 }

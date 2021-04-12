@@ -4,7 +4,7 @@
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
-      <input matInput formControlName='title' pattern="[a-zA-Z0-9\s]+">
+      <input matInput formControlName='title' pattern="[a-zA-Z0-9\s]+" [(ngModel)]=pages.title>
         <mat-error *ngIf="addForm.get('title').errors?.required">Title is Required</mat-error>
         <mat-error *ngIf="addForm.get('title').errors?.maxlength">Title should not have more than 15 characters</mat-error>
         <mat-error *ngIf="addForm.get('title').errors?.minlength">Title must be at least 5 characters</mat-error>
@@ -13,7 +13,7 @@
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Category</mat-label>
-      <mat-select formControlName='categorySelected' >
+      <mat-select formControlName='categorySelected' [(ngModel)]=pages.category >
         <mat-option *ngFor="let cat of category" [value]="cat">{{cat}}</mat-option>
       </mat-select>
       <mat-error *ngIf="addForm.get('categorySelected').errors?.required">You must make a selection</mat-error>
@@ -21,7 +21,7 @@
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Author</mat-label>
-      <mat-select formControlName='authorSelected'>
+      <mat-select formControlName='authorSelected' [(ngModel)]=pages.author>
         <mat-option *ngFor="let name of author" [value]="name">{{name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="addForm.get('authorSelected').errors?.required">You must make a selection</mat-error>

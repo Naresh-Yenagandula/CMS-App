@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+import {PagesService} from '../../pages.service';
+import {page} from '../../page';
 
 @Component({
   selector: 'app-add-page',
@@ -8,14 +10,15 @@ import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 })
 export class AddPageComponent implements OnInit {
   addForm:FormGroup;
+  pages?:page={title:'',category:'',author:''};
 
   category = ['category one','category two', 'category three'];
   author = ['John Wick','Vicky Nash','Jenni lora','Austen Paige'];
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private pageService:PagesService) { }
   
   onSubmit():void{
-    console.log(this.addForm.value);
+    this.pageService.addPages(this.pages);
   }
 
   ngOnInit(): void {

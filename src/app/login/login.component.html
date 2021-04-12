@@ -4,14 +4,15 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <mat-card>
-      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()" class="tp-form">
+      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()" class="tp-form" autocomplete="off">
         <h3 style="text-align: center;">DCX CMS</h3>
         <div>
           <mat-form-field appearance="outline" class="tp-full-width">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com" formControlName="email" required type="email">
             <mat-error *ngIf="loginForm.get('email').errors?.required">Email Id is required</mat-error>
-            <mat-error *ngIf = "loginForm.get('email').errors?.email">Email Id is Invalid</mat-error>
+            <!-- <mat-error *ngIf = "loginForm.get('email').errors?.email">Email Id is Invalid</mat-error> -->
+            <mat-error *ngIf = "loginForm.get('email').errors?.pattern">Email Id is Invalid</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="tp-full-width">
             <mat-label>Enter your Password</mat-label>

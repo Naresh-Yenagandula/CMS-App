@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class AddUserComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
+  group = ['Admin','Registered']
   userForm:FormGroup;
-  group=['Admin','Registered'];
   constructor(private fb:FormBuilder) { }
-  onSubmit():void{
+  onSubmit(){
     console.log(this.userForm.value);
     
   }

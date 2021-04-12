@@ -8,7 +8,7 @@
       <mat-error *ngIf="categoryForm.get('title').errors?.required">Category Title is Required</mat-error>
       <mat-error *ngIf="categoryForm.get('title').errors?.minlength">Category must be at least 5 characters</mat-error>
       <mat-error *ngIf="categoryForm.get('title').errors?.maxlength">Category should not have more than 15 characters</mat-error>
-      <mat-error *ngIf="categoryForm.get('title').errors?.pattern">Special characters not allowed</mat-error>
+      <mat-error *ngIf="categoryForm.get('title').errors?.pattern">Special characters and Numbers not allowed</mat-error>
     </mat-form-field>
 
     <button type="submit" mat-raised-button class="btn-color">Add Category</button>

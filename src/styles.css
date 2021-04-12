@@ -14,3 +14,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
      background-color: #2fa4e7;
      color: white;
  }
+ .activebutton {
+     background-color: #2a93cf;
+    text-shadow: 0 1px 0 #528ecc;
+    outline: 0;
+}

@@ -1,6 +1,6 @@
 <div style="padding-left: 20px;">
   <h3>Update User Account</h3>
-  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" class="tp-form" style="text-align: center;">
+  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" class="tp-form" style="text-align: center;" autocomplete="off">
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Full Name</mat-label>
       <input matInput formControlName='full_name' pattern="[A-Za-z\s]+">
@@ -13,7 +13,7 @@
       <mat-label>Enter Email</mat-label>
       <input matInput formControlName='email'>
       <mat-error *ngIf="userForm.get('email').errors?.required">Email is Required</mat-error>
-      <mat-error *ngIf="userForm.get('email').errors?.email">Email is invalid</mat-error>
+      <mat-error *ngIf="userForm.get('email').errors?.pattern">Email is invalid</mat-error>
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Group</mat-label>

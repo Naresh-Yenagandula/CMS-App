@@ -32,7 +32,10 @@ import { DeleteUserComponent } from './users/delete-user/delete-user.component';
 import { GetPagesComponent } from './pages/get-pages/get-pages.component';
 import { GetCategoriesComponent } from './categories/get-categories/get-categories.component';
 import { GetUsersComponent } from './users/get-users/get-users.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { GetProfileComponent } from './profile/get-profile/get-profile.component';
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,10 @@ import { GetUsersComponent } from './users/get-users/get-users.component';
     GetPagesComponent,
     GetCategoriesComponent,
     GetUsersComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    GetProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

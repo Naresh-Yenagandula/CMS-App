@@ -30,5 +30,6 @@
       <mat-error *ngIf="userForm.get('groupSelected').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
     <button type="submit" mat-raised-button class="btn-color">Add User</button>
+    <p *ngIf="message">{{message}}</p>
   </form>
 </div>

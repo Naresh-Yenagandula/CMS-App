@@ -12,6 +12,7 @@ import {UsersService} from '../../users.service';
 export class AddUserComponent implements OnInit {
   userForm:FormGroup;
   group=['Admin','Registered'];
+  message="";
 
   users:user={full_name:'',email:'',group:''};
 
@@ -20,6 +21,7 @@ export class AddUserComponent implements OnInit {
   onSubmit():void{
     //console.log(this.userForm.value);
     this.userService.addUser(this.users);
+    this.message="User added successfull"
   }
 
   ngOnInit(): void {

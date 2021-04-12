@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "title": "Page one",
+      "category": "category two",
+      "author": "Vicky Nash",
+      "id": 1
+    },
+    {
+      "title": "Page two",
+      "category": "category two",
+      "author": "Vicky Nash",
+      "id": 2
+    }
+  ],
+  "categories": [],
+  "users": []
+}

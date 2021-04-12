@@ -17,7 +17,7 @@ export class AddCategoriesComponent implements OnInit {
   onSubmit(): void {
     //console.log(this.categoryForm.value);
     this.cs.addcategory(this.cats);
-    this.message="Category added Sucessfully"
+    this.message="Category Added successfully"
   }
 
   ngOnInit(): void {

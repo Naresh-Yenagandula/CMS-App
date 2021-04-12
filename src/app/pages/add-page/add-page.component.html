@@ -1,6 +1,6 @@
 <div style="padding-left: 20px;">
   <h3>Add Page</h3>
-  <form class="tp-form" (ngSubmit)="addForm.valid && onSubmit()" [formGroup]='addForm' style="text-align: center;">
+  <form class="tp-form" (ngSubmit)="addForm.valid && onSubmit()" [formGroup]='addForm' style="text-align: center;" autocomplete="off">
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
@@ -26,7 +26,7 @@
       </mat-select>
       <mat-error *ngIf="addForm.get('authorSelected').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
-
     <button type="submit" mat-raised-button class="btn-color">Add Page</button>
+    <p *ngIf="message">{{message}}</p>
   </form>
 </div>

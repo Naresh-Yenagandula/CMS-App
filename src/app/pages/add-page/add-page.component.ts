@@ -11,6 +11,7 @@ import {page} from '../../page';
 export class AddPageComponent implements OnInit {
   addForm:FormGroup;
   pages?:page={title:'',category:'',author:''};
+  message="";
 
   category = ['category one','category two', 'category three'];
   author = ['John Wick','Vicky Nash','Jenni lora','Austen Paige'];
@@ -19,6 +20,7 @@ export class AddPageComponent implements OnInit {
   
   onSubmit():void{
     this.pageService.addPages(this.pages);
+    this.message = "Page Added Sucessfully!";
   }
 
   ngOnInit(): void {

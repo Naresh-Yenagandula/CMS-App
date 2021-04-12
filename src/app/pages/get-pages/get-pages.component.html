@@ -1,9 +1,4 @@
- <div *ngFor="let m of getPages()">
-   <p>{{m.title}}</p>
-   <p>{{m.category}}</p>
-   <p>{{m.author}}</p>
- </div>
- <table id="sort-table" class="table table-striped tablesorter">
+<table id="sort-table" class="table table-striped tablesorter">
    <thead>
      <tr>
        <th><input type="checkbox" /></th>
@@ -21,40 +16,12 @@
    </thead>
 
    <tbody>
-     <tr>
+     <tr *ngFor="let page of getPages()">
        <td><input type="checkbox" /></td>
-       <td><a href="page.html">Sample Page One</a></td>
-       <td>Category One</td>
-       <td>John Wick</td>
-       <td (click)="updatePage()">Update</td>
-     </tr>
-
-     <tr>
-       <td><input type="checkbox" /></td>
-       <td><a href="page.html">Sample Page Two</a></td>
-       <td>Category Two</td>
-       <td>Vicky Nash</td>
-     </tr>
-
-     <tr>
-       <td><input type="checkbox" /></td>
-       <td><a href="page.html">Sample Page Three</a></td>
-       <td>Category One</td>
-       <td>Jenni lora</td>
-     </tr>
-
-     <tr>
-       <td><input type="checkbox" /></td>
-       <td><a href="page.html">Sample Page Four</a></td>
-       <td>Category Three</td>
-       <td>Haley maya</td>
-     </tr>
-
-     <tr>
-       <td><input type="checkbox" /></td>
-       <td><a href="page.html">Sample Page Five</a></td>
-       <td>Category Two</td>
-       <td>Austen Paige</td>
+       <td>{{page.title}}</td>
+       <td>{{page.category}}</td>
+       <td>{{page.author}}</td>
+       <td (click)="updatePage()"></td>
      </tr>
    </tbody>
  </table>

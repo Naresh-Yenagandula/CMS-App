@@ -9,11 +9,17 @@ import {page} from '../../page';
   styleUrls: ['./get-pages.component.css']
 })
 export class GetPagesComponent implements OnInit {
-
+  pages:page[]=[];
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
-  getPages():page[]{
-    return this.pageService.pages;
+  getPages():void{
+     this.pageService.getPages().subscribe((info)=>{
+      this.pages = info.map((data)=>({
+        title:data.title,
+        category:data.category,
+        author:data.author
+      }))
+    });
   }
   ngOnInit(): void {
   }

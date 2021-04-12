@@ -3,7 +3,7 @@
   <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" class="tp-form" style="text-align: center;" autocomplete="off">
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Full Name</mat-label>
-      <input matInput formControlName='full_name' pattern="[A-Za-z\s]+">
+      <input matInput formControlName='full_name' pattern="[A-Za-z\s]+" [(ngModel)]=users.full_name>
       <mat-error *ngIf="userForm.get('full_name').errors?.required">Full Name is Required</mat-error>
       <mat-error *ngIf="userForm.get('full_name').errors?.minlength">Full Name must be at least 5 characters</mat-error>
       <mat-error *ngIf="userForm.get('full_name').errors?.maxlength">Full Name should not have more than 20 characters</mat-error>
@@ -11,7 +11,7 @@
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Email</mat-label>
-      <input matInput formControlName='email'>
+      <input matInput formControlName='email' [(ngModel)]=users.email>
       <mat-error *ngIf="userForm.get('email').errors?.required">Email is Required</mat-error>
       <mat-error *ngIf="userForm.get('email').errors?.pattern">Email is invalid</mat-error>
     </mat-form-field>
@@ -24,7 +24,7 @@
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Group</mat-label>
-      <mat-select formControlName='groupSelected'>
+      <mat-select formControlName='groupSelected' [(ngModel)]=users.group>
         <mat-option *ngFor='let name of group' [value]="name">{{name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="userForm.get('groupSelected').errors?.required">You must make a selection</mat-error>

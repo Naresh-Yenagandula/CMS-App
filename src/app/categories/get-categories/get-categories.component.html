@@ -10,12 +10,12 @@
   </thead>
 
   <tbody>
-    <tr>
+    <tr *ngFor="let cat of getcategory()">
       <td><input type="checkbox" /></td>
-      <td><a href="category.html">Sample Category One</a></td>
+      <td>{{ cat.title }}</td>
     </tr>
 
-    <tr>
+    <!-- <tr>
       <td><input type="checkbox" /></td>
       <td><a href="page.html">Sample Category Two</a></td>
     </tr>
@@ -23,7 +23,7 @@
     <tr>
       <td><input type="checkbox" /></td>
       <td><a href="category.html">Sample Category Three</a></td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 

@@ -1,3 +1,8 @@
+<!-- <div *ngFor="let m of getUsers()">
+  <p>{{m.full_name}}</p>
+  <p>{{m.email}}</p>
+  <p>{{m.group}}</p>
+</div> -->
 <table id="sort-table" class="table table-striped tablesorter">
   <thead>
     <tr>
@@ -9,33 +14,13 @@
   </thead>
 
   <tbody>
-    <tr>
+    <tr *ngFor="let m of getUsers()">
       <td><input type="checkbox"></td>
-      <td><a href="user.html">Austen Paige</a></td>
-      <td>paige@info.com</td>
-      <td>Admin</td>
+      <td>{{m.full_name}}</td>
+      <td>{{m.email}}</td>
+      <td>{{m.group}}</td>
     </tr>
 
-    <tr>
-      <td><input type="checkbox"></td>
-      <td><a href="user.html">Vicky Nash</a></td>
-      <td>vicky@info.com</td>
-      <td>Admin</td>
-    </tr>
-
-    <tr>
-      <td><input type="checkbox"></td>
-      <td><a href="user.html">John Wick</a></td>
-      <td>wick@info.com</td>
-      <td>Registered</td>
-    </tr>
-
-    <tr>
-      <td><input type="checkbox"></td>
-      <td><a href="user.html">Jenni lora</a></td>
-      <td>jenni@info.com</td>
-      <td>Registered</td>
-    </tr>
   </tbody>
 </table>
 

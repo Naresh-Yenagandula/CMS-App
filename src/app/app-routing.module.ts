@@ -18,8 +18,8 @@ import { GetCategoriesComponent } from './categories/get-categories/get-categori
 import { GetUsersComponent } from './users/get-users/get-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-import { GetProfileComponent } from "./profile/get-profile/get-profile.component";
-import { ChangePasswordComponent } from "./profile/change-password/change-password.component";
+import { GetProfileComponent } from './profile/get-profile/get-profile.component';
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

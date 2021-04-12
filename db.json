@@ -11,8 +11,35 @@
       "category": "category two",
       "author": "Vicky Nash",
       "id": 2
+    },
+    {
+      "title": "Page three",
+      "category": "category two",
+      "author": "Vicky Nash",
+      "id": 3
+    },
+    {
+      "title": "Page 2",
+      "category": "category two",
+      "author": "Austen Paige",
+      "id": 4
+    },
+    {
+      "title": "zxxxx",
+      "category": "category two",
+      "author": "Vicky Nash",
+      "id": 5
     }
   ],
-  "categories": [],
+  "categories": [
+    {
+      "title": "Category",
+      "id": 1
+    },
+    {
+      "title": "Category one",
+      "id": 3
+    }
+  ],
   "users": []
 }

@@ -1,7 +1,7 @@
 <table id="sort-table" class="table table-striped tablesorter">
   <thead>
     <tr>
-      <th><input type="checkbox" /></th>
+      <!-- <th><input type="checkbox" /></th> -->
       <th>
         Category Title
         <i class="glyphicon glyphicon-chevron-down"></i>
@@ -10,8 +10,8 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let cat of getcategory()">
-      <td><input type="checkbox" /></td>
+    <tr *ngFor="let cat of categories">
+      <!-- <td><input type="checkbox" /></td> -->
       <td>{{ cat.title }}</td>
     </tr>
 

@@ -17,7 +17,4 @@ export class PagesService {
   getPages():Observable<page[]>{
     return this.http.get<page[]>(this.url,this.head);
   }
-  // addPages(p:page){
-  //   this.pages.push(p);
-  // }
 }

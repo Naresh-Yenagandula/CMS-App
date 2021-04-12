@@ -1,7 +1,7 @@
 <table id="sort-table" class="table table-striped tablesorter">
    <thead>
      <tr>
-       <th><input type="checkbox" /></th>
+       <!-- <th><input type="checkbox" /></th> -->
        <th>
          Page Title <i class="glyphicon glyphicon-chevron-down"></i>
        </th>
@@ -17,7 +17,7 @@
 
    <tbody>
      <tr *ngFor="let page of pages">
-       <td><input type="checkbox" /></td>
+       <!-- <td><input type="checkbox" value={{page.id}}/></td> -->
        <td>{{page.title}}</td>
        <td>{{page.category}}</td>
        <td>{{page.author}}</td>

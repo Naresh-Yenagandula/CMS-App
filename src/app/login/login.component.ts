@@ -11,6 +11,7 @@ import {login} from '../login';
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   hide=true;
+  message = "";
   constructor(private fb:FormBuilder,private router:Router,private route:ActivatedRoute,private authService:AuthLoginService) { }
  /*  loginUser(data):void{
     this.authService.loginUser(data).subscribe((info)=>{
@@ -23,7 +24,12 @@ export class LoginComponent implements OnInit {
   onSubmit():void{
     if(this.loginForm.valid){
       this.authService.loginUser(this.loginForm.value).subscribe(result=>{
+        this.message = "login successfull";
         console.log(this.loginForm);
+        console.log(result);
+      },error=>{
+        this.message = error.error;
+        console.log(error);
         
       });
     }

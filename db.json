@@ -61,6 +61,11 @@
       "email": "pat@gmail.com",
       "password": "drgtgtg",
       "id": 2
+    },
+    {
+      "email": "pat@gmail.com",
+      "password": "drgtgtg",
+      "id": 3
     }
   ]
 }

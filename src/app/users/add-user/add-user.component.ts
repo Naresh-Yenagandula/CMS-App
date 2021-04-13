@@ -21,11 +21,12 @@ export class AddUserComponent implements OnInit {
   onSubmit():void{
     console.log("Data from component",this.users);
     
-    this.userService.addUsers(this.users).subscribe((data) => {
+    this.userService.addUsers(this.users).subscribe(data => {
       console.log(data);
       this.message = "User Added Sucessfully!";
-    }
-    );
+    },error=>{
+      this.message = error.error;
+    });
   }
 
   ngOnInit(): void {

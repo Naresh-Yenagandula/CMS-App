@@ -26,11 +26,10 @@ export class LoginComponent implements OnInit {
       this.authService.loginUser(this.loginForm.value).subscribe(result=>{
         this.message = "login successfull";
         console.log(this.loginForm);
-        console.log(result);
+        // console.log(result);
       },error=>{
-        this.message = error.error;
+        this.message = error.error.message;
         console.log(error);
-        
       });
     }
     

@@ -17,7 +17,7 @@
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Password</mat-label>
-      <input matInput formControlName='password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$]).{8,}">
+      <input matInput formControlName='password' [(ngModel)]=users.password pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$]).{8,}">
       <mat-error *ngIf="userForm.get('password').errors?.required">Password is Required</mat-error>
       <!-- <mat-error *ngIf="changePassword.get('new').errors?.minlength">It should contain alteast 8 characters</mat-error> -->
       <mat-error *ngIf="userForm.get('password').errors?.pattern">Must contain at least one number and one uppercase and lowercase letter and Special charaters<br></mat-error>

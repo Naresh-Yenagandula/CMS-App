@@ -19,10 +19,7 @@ export class AddUserComponent implements OnInit {
   constructor(private fb:FormBuilder, private userService:UsersService) { }
 
   onSubmit():void{
-    //console.log(this.userForm.value);
-    // this.userService.addUser(this.users);
-    // this.message="User added successfull"
-    console.log(this.users);
+    console.log("Data from component",this.users);
     
     this.userService.addUsers(this.users).subscribe((data) => {
       console.log(data);

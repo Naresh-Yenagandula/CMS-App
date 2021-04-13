@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute,Router} from '@angular/router';
 import {AuthLoginService} from '../auth-login.service';
-import {login} from '../login';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,23 +13,18 @@ export class LoginComponent implements OnInit {
   hide=true;
   message = "";
   constructor(private fb:FormBuilder,private router:Router,private route:ActivatedRoute,private authService:AuthLoginService) { }
- /*  loginUser(data):void{
-    this.authService.loginUser(data).subscribe((info)=>{
-     this.loginForm = info.map((data)=>({
-       email:data.eamil,
-       password:data.password,
-     }))
-   }); */
- 
+
   onSubmit():void{
     if(this.loginForm.valid){
       this.authService.loginUser(this.loginForm.value).subscribe(result=>{
-        this.message = "login successfull";
-        console.log(this.loginForm);
-        // console.log(result);
+        this.message = "login successfull!";
+        console.log(result);
+        localStorage.setItem('token',result);
+        this.router.navigate(['dashboard']);
+        
       },error=>{
         this.message = error.error.message;
-        console.log(error);
+        // console.log(error);
       });
     }
     

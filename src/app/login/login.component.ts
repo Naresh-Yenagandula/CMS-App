@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute,Router} from '@angular/router';
 import {AuthLoginService} from '../auth-login.service';
+import {login} from '../login';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,14 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   hide=true;
   constructor(private fb:FormBuilder,private router:Router,private route:ActivatedRoute,private authService:AuthLoginService) { }
-
+ /*  loginUser(data):void{
+    this.authService.loginUser(data).subscribe((info)=>{
+     this.loginForm = info.map((data)=>({
+       email:data.eamil,
+       password:data.password,
+     }))
+   }); */
+ 
   onSubmit():void{
     if(this.loginForm.valid){
       this.authService.loginUser(this.loginForm.value).subscribe(result=>{

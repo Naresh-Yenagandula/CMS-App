@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {login} from './login';
 
 @Injectable({
   providedIn: 'root',
@@ -13,3 +14,4 @@ export class AuthLoginService {
     return this.http.post<any>(this.url, data, this.head);
   }
 }
+

@@ -65,6 +65,12 @@
       "email": "amb@google.com",
       "group": "Admin",
       "id": 1
+    },
+    {
+      "full_name": "Bcdas",
+      "email": "abc@google.com",
+      "group": "Registered",
+      "id": 2
     }
   ]
 }

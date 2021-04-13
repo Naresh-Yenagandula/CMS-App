@@ -13,16 +13,10 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder,private router:Router,private route:ActivatedRoute,private authService:AuthLoginService) { }
 
   onSubmit():void{
-   /*  console.log(this.loginForm.value);
-    this.router.navigate(['']) */
     if(this.loginForm.valid){
       this.authService.loginUser(this.loginForm.value).subscribe(result=>{
-        if(result.success){
-          console.log(result);
-          alert(result.message);  
-        }else{
-          alert(result.message);
-        }
+        console.log(this.loginForm);
+        
       });
     }
     

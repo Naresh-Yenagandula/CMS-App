@@ -7,7 +7,6 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class PagesService {
-  // pages:page[]=[];
   constructor(private http:HttpClient) { }
   url = 'http://localhost:3000/pages';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};

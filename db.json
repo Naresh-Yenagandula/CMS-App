@@ -29,7 +29,15 @@
       "category": "category two",
       "author": "Vicky Nash",
       "id": 5
-    }
+    },
+    [
+      {
+        "title": "Page nine",
+        "category": "abhi5698",
+        "author": "Nash",
+        "id": 6
+      }
+    ]
   ],
   "categories": [
     {
@@ -41,5 +49,18 @@
       "id": 3
     }
   ],
-  "users": []
+  "users": [],
+  "login": [
+    [
+      {
+        "email": "abhi@gmail",
+        "password": "1156fhh"
+      }
+    ],
+    {
+      "email": "pat@gmail.com",
+      "password": "drgtgtg",
+      "id": 2
+    }
+  ]
 }

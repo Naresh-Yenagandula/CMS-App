@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {user} from '../../users';
+import {UsersService} from '../../users.service';
 
 @Component({
   selector: 'app-update-user',
@@ -10,9 +12,18 @@ export class UpdateUserComponent implements OnInit {
 
   userForm:FormGroup;
   group=['Admin','Registered'];
-  constructor(private fb:FormBuilder) { }
+  message="";
+
+  users?:user={full_name:'',email:'',group:''};
+
+  constructor(private fb:FormBuilder, private userService:UsersService) { }
   onSubmit():void{
     console.log(this.userForm.value);
+    this.userService.updateUsers(this.users).subscribe((data) => {
+      console.log(data);
+      this.message = "User Updated Sucessfully!";
+    }
+    );
     
   }
 

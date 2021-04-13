@@ -29,6 +29,24 @@
       "category": "category two",
       "author": "Vicky Nash",
       "id": 5
+    },
+    {
+      "title": "page007",
+      "category": "category three",
+      "author": "Austen Paige",
+      "id": 6
+    },
+    {
+      "title": "ppppp",
+      "category": "category two",
+      "author": "John Wick",
+      "id": 7
+    },
+    {
+      "title": "Asasa",
+      "category": "category two",
+      "author": "Vicky Nash",
+      "id": 8
     }
   ],
   "categories": [
@@ -41,5 +59,12 @@
       "id": 3
     }
   ],
-  "users": []
+  "users": [
+    {
+      "full_name": "Ameya",
+      "email": "amb@google.com",
+      "group": "Admin",
+      "id": 1
+    }
+  ]
 }

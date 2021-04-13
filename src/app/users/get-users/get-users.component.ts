@@ -12,12 +12,20 @@ import {ActivatedRoute,Router} from '@angular/router';
 export class GetUsersComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
+  users:user[]=[];
 
-  getUsers():user[]{
-    return this.userService.users;
+  getUsers():void{
+    this.userService.getUsers().subscribe((info)=>{
+      this.users = info.map((data)=>({
+        full_name:data.full_name,
+        email:data.email,
+        group:data.group
+      }))
+    });
   }
   
   ngOnInit(): void {
+    this.getUsers();
   }
 
   updateUser():void{

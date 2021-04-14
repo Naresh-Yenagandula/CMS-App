@@ -8,13 +8,11 @@ import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 })
 export class UsersService {
   
- // users:user[]=[];
-
- 
  constructor(private http:HttpClient) { }
 
   url='http://localhost:3000/api/user/register';
   urlInfo = "http://localhost:3000/verify/data";
+  getDataUrl = "http://localhost:3000/getData/user";
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
  
   addUsers(u:user): Observable<user>{
@@ -25,8 +23,8 @@ export class UsersService {
     return this.http.put<user>(this.url,u,this.head);
     }
 
-  getUsers():Observable<user[]>{
-    return this.http.get<user[]>(this.url,this.head);
+  getUsers():Observable<any[]>{
+    return this.http.get<any[]>(this.getDataUrl,this.head);
   }
   
   getName():Observable<any>{

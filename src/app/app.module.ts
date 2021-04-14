@@ -18,6 +18,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { NavbarComponent } from './defaults/navbar/navbar.component';
 import { FooterComponent } from './defaults/footer/footer.component';
@@ -78,7 +80,9 @@ import { ChangePasswordComponent } from './profile/change-password/change-passwo
     MatCheckboxModule,
     MatButtonModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule
 
   ],
   providers: [],

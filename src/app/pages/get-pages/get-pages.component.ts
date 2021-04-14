@@ -22,7 +22,7 @@ export class GetPagesComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getPages();
+    // this.getPages();
   }
   updatePage():void{
     this.router.navigate(['updatePage'],{relativeTo:this.route});

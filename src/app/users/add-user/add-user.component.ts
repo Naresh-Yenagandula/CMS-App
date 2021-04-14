@@ -25,7 +25,7 @@ export class AddUserComponent implements OnInit {
       console.log(data);
       this.message = "User Added Sucessfully!";
     },error=>{
-      this.message = error.error;
+      this.message = error.error.message;
     });
   }
 

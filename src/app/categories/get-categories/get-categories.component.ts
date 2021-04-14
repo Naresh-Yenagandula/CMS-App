@@ -13,7 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class GetCategoriesComponent implements OnInit {
   categories=[];
   dataSource:MatTableDataSource<any>;
-  displayedColumns: string[] = ['title'];
+  displayedColumns: string[] = ['title','update','delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private cs:CategoriesService) { }
   getcategory(){

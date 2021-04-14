@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+
 import { NavbarComponent } from './defaults/navbar/navbar.component';
 import { FooterComponent } from './defaults/footer/footer.component';
 import { AddCategoriesComponent } from './categories/add-categories/add-categories.component';

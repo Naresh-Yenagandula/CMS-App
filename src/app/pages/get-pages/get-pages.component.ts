@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class GetPagesComponent implements OnInit {
   pages=[];
   dataSource:MatTableDataSource<any>;
-  displayedColumns: string[] = ['title','category','author'];
+  displayedColumns: string[] = ['title','category','author','update','delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 

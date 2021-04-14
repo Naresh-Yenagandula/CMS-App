@@ -16,7 +16,7 @@ export class GetUsersComponent implements OnInit {
   constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
   users=[];
   dataSource:MatTableDataSource<any>;
-  displayedColumns: string[] = ['full_name', 'email', 'group'];
+  displayedColumns: string[] = ['full_name', 'email', 'group','update','delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   getUsers():void{

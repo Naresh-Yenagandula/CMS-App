@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root',
 })
 export class CategoriesService {
-  url = 'http://localhost:3000/categories';
+  url = 'http://localhost:3000/getdata/categories';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private http:HttpClient) {}
   addcategory(c: category):Observable<category> {

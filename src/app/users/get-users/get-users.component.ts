@@ -15,25 +15,25 @@ export class GetUsersComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
   users=[];
+  dataSource:MatTableDataSource<any>;
   displayedColumns: string[] = ['full_name', 'email', 'group'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   getUsers():void{
     this.userService.getUsers().subscribe((info)=>{
-      this.users=info;
-      // this.users = info.map((info)=>({
-      //   full_name:info.name,
-      //   email:info.email,
-      //   password:info.password,
-      //   group:info.group
-      // }))
+      this.users = info.map((info)=>({
+        name:info.name,
+        email:info.email,
+        password:info.password,
+        group:info.group
+      }))
+      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.paginator = this.paginator;
     });
   }
-  dataSource = new MatTableDataSource<any>(this.users);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit(): void {
     this.getUsers();
-    this.dataSource.paginator = this.paginator;
   }
 
   updateUser():void{

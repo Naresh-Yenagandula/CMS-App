@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { CategoriesService } from '../../categories.service';
 import { category } from '../../category';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+
 
 @Component({
   selector: 'app-get-categories',
@@ -8,17 +11,22 @@ import { category } from '../../category';
   styleUrls: ['./get-categories.component.css']
 })
 export class GetCategoriesComponent implements OnInit {
-  categories:category[]=[];
+  categories=[];
+  dataSource:MatTableDataSource<any>;
+  displayedColumns: string[] = ['title'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private cs:CategoriesService) { }
   getcategory(){
     return this.cs.getCategory().subscribe((data)=>{
       this.categories = data.map((info)=>({
         title:info.title
       }))
+      this.dataSource = new MatTableDataSource(this.categories);
+      this.dataSource.paginator = this.paginator;
     });
   }
   ngOnInit(): void {
-    // this.getcategory();
+    this.getcategory();
   }
 
 }

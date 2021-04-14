@@ -1,47 +1,20 @@
-<table id="sort-table" class="table table-striped tablesorter">
-   <thead>
-     <tr>
-       <!-- <th><input type="checkbox" /></th> -->
-       <th>
-         Page Title <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>
-         Category <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>
-         Author <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>Update</th>
-     </tr>
-   </thead>
+<div class="mat-elevation-z3">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef> Author </th>
+      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
-   <tbody>
-     <tr *ngFor="let page of pages">
-       <!-- <td><input type="checkbox" value={{page.id}}/></td> -->
-       <td>{{page.title}}</td>
-       <td>{{page.category}}</td>
-       <td>{{page.author}}</td>
-       <td (click)="updatePage()"></td>
-     </tr>
-   </tbody>
- </table>
-
- <nav aria-label="Page navigation">
-   <ul class="pagination">
-     <li>
-       <a href="#" aria-label="Previous">
-         <span aria-hidden="true">&laquo;</span>
-       </a>
-     </li>
-     <li><a href="#">1</a></li>
-     <li><a href="#">2</a></li>
-     <li><a href="#">3</a></li>
-     <li><a href="#">4</a></li>
-     <li><a href="#">5</a></li>
-     <li>
-       <a href="#" aria-label="Next">
-         <span aria-hidden="true">&raquo;</span>
-       </a>
-     </li>
-   </ul>
- </nav>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {PagesService} from "../../pages.service";
 import {page} from '../../page';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+
 
 @Component({
   selector: 'app-get-pages',
@@ -9,7 +12,10 @@ import {page} from '../../page';
   styleUrls: ['./get-pages.component.css']
 })
 export class GetPagesComponent implements OnInit {
-  pages:page[]=[];
+  pages=[];
+  dataSource:MatTableDataSource<any>;
+  displayedColumns: string[] = ['title','category','author'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
   getPages():void{
@@ -19,10 +25,12 @@ export class GetPagesComponent implements OnInit {
         category:data.category,
         author:data.author
       }))
+      this.dataSource = new MatTableDataSource(this.pages);
+      this.dataSource.paginator = this.paginator;
     });
   }
   ngOnInit(): void {
-    // this.getPages();
+    this.getPages();
   }
   updatePage():void{
     this.router.navigate(['updatePage'],{relativeTo:this.route});

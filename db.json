@@ -30,24 +30,14 @@
       "author": "Vicky Nash",
       "id": 5
     },
-    {
-      "title": "page007",
-      "category": "category three",
-      "author": "Austen Paige",
-      "id": 6
-    },
-    {
-      "title": "ppppp",
-      "category": "category two",
-      "author": "John Wick",
-      "id": 7
-    },
-    {
-      "title": "Asasa",
-      "category": "category two",
-      "author": "Vicky Nash",
-      "id": 8
-    }
+    [
+      {
+        "title": "Page nine",
+        "category": "abhi5698",
+        "author": "Nash",
+        "id": 6
+      }
+    ]
   ],
   "categories": [
     {
@@ -59,17 +49,17 @@
       "id": 3
     }
   ],
-  "users": [
+  "users": [],
+  "login": [
+    [
+      {
+        "email": "abhi@gmail",
+        "password": "1156fhh"
+      }
+    ],
     {
-      "full_name": "Ameya",
-      "email": "amb@google.com",
-      "group": "Admin",
-      "id": 1
-    },
-    {
-      "full_name": "Bcdas",
-      "email": "abc@google.com",
-      "group": "Registered",
+      "email": "pat@gmail.com",
+      "password": "drgtgtg",
       "id": 2
     }
   ]

@@ -18,7 +18,7 @@ export class GetCategoriesComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getcategory();
+    // this.getcategory();
   }
 
 }

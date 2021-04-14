@@ -7,7 +7,6 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root',
 })
 export class CategoriesService {
-  // cat: category[] = [];
   url = 'http://localhost:3000/categories';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private http:HttpClient) {}

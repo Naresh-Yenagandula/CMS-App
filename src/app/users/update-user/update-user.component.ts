@@ -14,7 +14,7 @@ export class UpdateUserComponent implements OnInit {
   group=['Admin','Registered'];
   message="";
 
-  users?:user={full_name:'',email:'',group:''};
+  users?:user={full_name:'',email:'',password:'',group:''};
 
   constructor(private fb:FormBuilder, private userService:UsersService) { }
   onSubmit():void{

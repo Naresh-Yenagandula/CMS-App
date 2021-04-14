@@ -7,9 +7,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class PagesService {
-  // pages:page[]=[];
   constructor(private http:HttpClient) { }
-  url = 'http://localhost:3000/pages';
+  url = 'http://localhost:3000/getdata/pages';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   addPages(p:page):Observable<page>{
     return this.http.post<page>(this.url,p,this.head);

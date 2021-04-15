@@ -24,8 +24,8 @@ export class UsersService {
     return this.http.put<user>(this.url,u,this.head);
     }
 
-  getUsers():Observable<any[]>{
-    return this.http.get<any[]>(this.getDataUrl,this.head);
+  getUsers(offset,limit){
+    return this.http.get(`${this.getDataUrl}/${offset}/${limit}`,this.head);
   }
   
   getName():Observable<any>{

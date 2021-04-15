@@ -12,8 +12,8 @@
       <ng-container *ngFor="let row of categories.result | paginate:{itemsPerPage:limit,currentPage:c,totalItems:categories.no}">
         <tr>
           <td>{{row.title}}</td>
-          <td>update</td>
-          <td>Delete</td>
+          <td><mat-icon>edit</mat-icon></td>
+          <td><mat-icon>delete</mat-icon></td>
         </tr>
       </ng-container>
     </tbody>

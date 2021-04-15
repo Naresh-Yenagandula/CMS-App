@@ -11,13 +11,13 @@ import { category } from '../../category';
 export class AddCategoriesComponent implements OnInit {
   categoryForm: FormGroup;
   cats?: category = { title: '' };
-  message="";
+  message=false;
   constructor(private fb: FormBuilder, private cs: CategoriesService) {}
 
   onSubmit(): void {
     //console.log(this.categoryForm.value);
     this.cs.addcategory(this.cats).subscribe((data)=>{
-      this.message="Category Added successfully"
+      this.message=true;
     });
   }
 

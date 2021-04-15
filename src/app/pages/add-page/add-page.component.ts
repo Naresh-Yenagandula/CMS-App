@@ -11,7 +11,7 @@ import { page } from '../../page';
 export class AddPageComponent implements OnInit {
   addForm: FormGroup;
   pages?: page = { title: '', category: '', author: '' };
-  message = "";
+  message = false;
 
   category = ['category one', 'category two', 'category three'];
   author = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
@@ -20,7 +20,7 @@ export class AddPageComponent implements OnInit {
 
   onSubmit(): void {
     this.pageService.addPages(this.pages).subscribe((data) => {
-      this.message = "Page Added Sucessfully!";
+      this.message = true;
     }
     );
   }

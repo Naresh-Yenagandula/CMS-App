@@ -1,4 +1,4 @@
-<div style="padding-left: 20px;">
+<div style="padding-left: 20px;" *ngIf="!message">
   <h3>Add Page</h3>
   <form class="tp-form" (ngSubmit)="addForm.valid && onSubmit()" [formGroup]='addForm' style="text-align: center;"
     autocomplete="off">
@@ -31,4 +31,12 @@
     <button type="submit" mat-raised-button class="btn-color">Add Page</button>
     <p *ngIf="message">{{message}}</p>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">Page Added Successfully!</h3>
+    </div>
+  </div>
 </div>

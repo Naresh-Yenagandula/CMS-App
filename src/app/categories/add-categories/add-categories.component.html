@@ -1,4 +1,4 @@
-<div style="padding-left: 20px">
+<div style="padding-left: 20px" *ngIf="!message">
   <h3>Add Category</h3>
   <form class="tp-form" style="text-align: center" (ngSubmit)="categoryForm.valid && onSubmit()"
     [formGroup]="categoryForm">
@@ -16,6 +16,13 @@
     <button type="submit" mat-raised-button class="btn-color">
       Add Category
     </button>
-    <p *ngIf="message">{{message}}</p>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">Category Added Successfully!</h3>
+    </div>
+  </div>
 </div>

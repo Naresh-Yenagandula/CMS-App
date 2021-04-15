@@ -12,7 +12,7 @@ import {UsersService} from '../../users.service';
 export class AddUserComponent implements OnInit {
   userForm:FormGroup;
   group=['Admin','Registered'];
-  message="";
+  message=false;
 
   users:user={full_name:'',email:'',password:'',group:''};
 
@@ -20,7 +20,7 @@ export class AddUserComponent implements OnInit {
 
   onSubmit():void{
     this.userService.addUsers(this.users).subscribe(data => {
-      this.message = "User Added Sucessfully!";
+      this.message = true;
     },error=>{
       this.message = error.error.message;
     });

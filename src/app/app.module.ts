@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 import { NavbarComponent } from './defaults/navbar/navbar.component';
@@ -83,7 +84,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule
 
   ],
   providers: [],

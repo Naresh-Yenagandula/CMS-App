@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { GetProfileComponent } from './profile/get-profile/get-profile.component';
 import { ChangePasswordComponent } from './profile/change-password/change-password.component';
+import {AuthGuardService} from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -41,10 +42,10 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'users', component: UsersComponent,
+    path: 'users', component: UsersComponent,canActivate:[AuthGuardService],data:{expectedRole:'Admin'},
     children: [
-      { path: '', component: GetUsersComponent },
-      { path: 'addUser', component: AddUserComponent },
+      { path: '', component: GetUsersComponent},
+      { path: 'addUser', component: AddUserComponent,canActivate:[AuthGuardService],data:{expectedRole:'Admin'} },
       { path: 'updateUser/:id', component: UpdateUserComponent }
     ]
   },

@@ -10,18 +10,23 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let row of pages.result | paginate:{itemsPerPage:limit,currentPage:pageNo,totalItems:pages.no}">
+      <ng-container
+        *ngFor="let row of pages.result | paginate:{itemsPerPage:limit,currentPage:pageNo,totalItems:pages.no}">
         <tr>
           <td>{{row.title}}</td>
           <td>{{row.category}}</td>
           <td>{{row.author}}</td>
-          <td><mat-icon routerLink='updatePage/{{row._id}}'>edit</mat-icon></td>
-          <td><mat-icon>delete</mat-icon></td>
+          <td>
+            <mat-icon routerLink='updatePage/{{row._id}}'>edit</mat-icon>
+          </td>
+          <td>
+            <mat-icon>delete</mat-icon>
+          </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
   <div class="pull-right">
-    <pagination-controls (pageChange)="getPage($event)"   previousLabel="Prev" nextLabel="Next" ></pagination-controls>
+    <pagination-controls (pageChange)="getPage($event)" previousLabel="Prev" nextLabel="Next"></pagination-controls>
   </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {user} from '../../users';
 import {UsersService} from '../../users.service';
 
 @Component({
@@ -14,18 +13,13 @@ export class UpdateUserComponent implements OnInit {
   group=['Admin','Registered'];
   message="";
 
-  users?:user={full_name:'',email:'',password:'',group:''};
-
   constructor(private fb:FormBuilder, private userService:UsersService) { }
   onSubmit():void{
     console.log(this.userForm.value);
-    this.userService.updateUsers(this.users).subscribe((data) => {
-      console.log(data);
+    this.userService.updateUsers(this.userForm.value).subscribe((data) => {
       this.message = "User Updated Sucessfully!";
     }
-    );
-    
-  }
+    )}
 
   ngOnInit(): void {
     this.userForm=this.fb.group({

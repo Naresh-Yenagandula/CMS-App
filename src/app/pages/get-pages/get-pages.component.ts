@@ -1,10 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {PagesService} from "../../pages.service";
-import {page} from '../../page';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-
 
 @Component({
   selector: 'app-get-pages',
@@ -16,13 +12,10 @@ export class GetPagesComponent implements OnInit {
   pageNo:number =1;
   limit:number=5;
   total:number; 
-  dataSource:MatTableDataSource<any>;
-  displayedColumns: string[] = ['title','category','author','update','delete'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
   getPages(pageNo):void{
-
     let offset = (pageNo-1)*this.limit;
      this.pageService.getPages(offset,this.limit).subscribe((info)=>{
         this.pages=info;
@@ -35,6 +28,6 @@ export class GetPagesComponent implements OnInit {
     this.pageNo  = p;
   }
   ngOnInit(): void {
-    this.getPages(this.pageNo);
+    this.getPage(this.pageNo);
   }
 }

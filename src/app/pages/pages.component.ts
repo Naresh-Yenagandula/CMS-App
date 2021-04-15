@@ -12,9 +12,6 @@ export class PagesComponent implements OnInit {
   addPage():void{
     this.router.navigate(['addPage'],{relativeTo:this.route})
   }
-  updatePage():void{
-    this.router.navigate(['updatePage'],{relativeTo:this.route});
-  }
   ngOnInit(): void {
   }
 

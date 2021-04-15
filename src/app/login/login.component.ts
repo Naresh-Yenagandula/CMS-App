@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthLoginService } from '../auth-login.service';
 
 @Component({
@@ -12,21 +12,17 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
   message = "";
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private authService: AuthLoginService) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthLoginService) { }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.authService.loginUser(this.loginForm.value).subscribe(result => {
-        // this.message = "<p style='color:green'>login successfull!</p>";
         localStorage.setItem('token', result);
         this.router.navigate(['dashboard']);
-
       }, error => {
         this.message = error.error.message;
-        // console.log(error);
       });
     }
-
   }
 
   ngOnInit(): void {

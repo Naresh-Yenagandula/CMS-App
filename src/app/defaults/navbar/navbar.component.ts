@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UsersService} from '../../users.service';
-import { ActivatedRoute,Router } from "@angular/router";
-
-// import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+import { UsersService } from '../../users.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -10,23 +8,19 @@ import { ActivatedRoute,Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  // searchForm:FormGroup;
-  name:String="";
-  constructor(private userService:UsersService,private router:Router) { }
-  getName():void{
-    this.userService.getName().subscribe(data=> {
-        this.name = data.name.name;
-        },
-      error=>{this.router.navigate(['login'])
-    }
+  name: String = "";
+  constructor(private userService: UsersService, private router: Router) { }
+  getName(): void {
+    this.userService.getName().subscribe(data => {
+      this.name = data.name.name;
+    },
+      error => {
+        this.router.navigate(['login'])
+      }
     )
   }
 
   ngOnInit(): void {
     this.getName();
-    // this.searchForm = this.fb.group({
-    //   search:['',[Validators.required]]
-    // })
   }
-
 }

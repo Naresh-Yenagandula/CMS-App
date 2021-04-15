@@ -1,10 +1,5 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../../users.service';
-import {user}  from '../../users';
-import {ActivatedRoute,Router} from '@angular/router';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-
 
 @Component({
   selector: 'app-get-users',
@@ -17,15 +12,11 @@ export class GetUsersComponent implements OnInit {
   pNo :number =1;
   limit :number =5;
   total:number;
-  dataSource:MatTableDataSource<any>;
-  displayedColumns: string[] = ['full_name', 'email', 'group','update','delete'];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
+  constructor(private userService:UsersService) { }
 
   getUsers(p):void{
     let offset=(p-1)*this.limit;
-
     this.userService.getUsers(offset,this.limit).subscribe((info)=>{
       this.users = info;
     });
@@ -38,11 +29,7 @@ export class GetUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers(this.pNo);
-  }
-
-  updateUser():void{
-    this.router.navigate(['updateUser'],{relativeTo:this.route});
+    this.getPage(this.pNo);
   }
 
 }

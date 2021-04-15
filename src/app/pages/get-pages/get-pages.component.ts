@@ -22,15 +22,17 @@ export class GetPagesComponent implements OnInit {
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
   getPages(pageNo):void{
-    console.log("fired"+pageNo);
-    
+
     let offset = (pageNo-1)*this.limit;
      this.pageService.getPages(offset,this.limit).subscribe((info)=>{
-       console.log(info);
-       
         this.pages=info;
     });
     this.total = this.pages.no;
+  }
+
+  getPage(p):void{
+    this.getPages(p);
+    this.pageNo  = p;
   }
   ngOnInit(): void {
     this.getPages(this.pageNo);

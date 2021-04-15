@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class GetUsersComponent implements OnInit {
 
   users :any=[];
-  p :number =1;
+  pNo :number =1;
   limit :number =5;
   total:number;
   dataSource:MatTableDataSource<any>;
@@ -32,13 +32,13 @@ export class GetUsersComponent implements OnInit {
     this.total = this.users.no;
   }
 
-  getPage(pNo:number){
-    this.p=pNo;
-    this.getUsers(this.p);
+  getPage(p:number){
+    this.pNo=p;
+    this.getUsers(this.pNo);
   }
 
   ngOnInit(): void {
-    this.getUsers(this.p);
+    this.getUsers(this.pNo);
   }
 
   updateUser():void{

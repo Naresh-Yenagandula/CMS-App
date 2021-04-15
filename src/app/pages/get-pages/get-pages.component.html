@@ -21,7 +21,7 @@
       </ng-container>
     </tbody>
   </table>
-  <div class="pagination pagination-sm m-0 float-right">
-    <pagination-controls (pageChange)="getPages($event)"></pagination-controls>
+  <div class="pull-right">
+    <pagination-controls (pageChange)="getPage($event)"   previousLabel="Prev" nextLabel="Next" ></pagination-controls>
   </div>
 </div>

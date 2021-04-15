@@ -12,14 +12,15 @@ export class UsersService {
 
   url='http://localhost:3000/api/user/register';
   urlInfo = "http://localhost:3000/verify/data";
-  getDataUrl = "http://localhost:3000/getData/user";
+  getDataUrl = "http://localhost:3000/getData/users";
+  findUrl = 'http://localhost:3000/getdata/user/';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
  
   addUsers(u:user): Observable<user>{
   return this.http.post<user>(this.url,u,this.head);
   }
 
-  updateUsers(u:user): Observable<user>{
+  updateUsers(u): Observable<user>{
     return this.http.put<user>(this.url,u,this.head);
     }
 

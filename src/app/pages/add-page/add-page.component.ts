@@ -19,10 +19,7 @@ export class AddPageComponent implements OnInit {
   constructor(private fb: FormBuilder, private pageService: PagesService) { }
 
   onSubmit(): void {
-    console.log(this.pages);
-    
     this.pageService.addPages(this.pages).subscribe((data) => {
-      console.log(data);
       this.message = "Page Added Sucessfully!";
     }
     );

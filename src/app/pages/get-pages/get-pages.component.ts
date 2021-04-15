@@ -21,6 +21,7 @@ export class GetPagesComponent implements OnInit {
   getPages():void{
      this.pageService.getPages().subscribe((info)=>{
       this.pages = info.map((data)=>({
+        id:data._id,
         title:data.title,
         category:data.category,
         author:data.author
@@ -32,7 +33,7 @@ export class GetPagesComponent implements OnInit {
   ngOnInit(): void {
     this.getPages();
   }
-  updatePage():void{
-    this.router.navigate(['updatePage'],{relativeTo:this.route});
-  }
+  // updatePage():void{
+  //   this.router.navigate(['updatePage'],{relativeTo:this.route});
+  // }
 }

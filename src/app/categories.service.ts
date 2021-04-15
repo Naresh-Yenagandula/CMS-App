@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { category } from './category';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,10 @@ export class CategoriesService {
   addcategory(c: category):Observable<category> {
     return this.http.post<category>(this.url,c,this.head);
   }
-  getCategories():Observable<category[]>{
+ /*  getCategories():Observable<category[]>{
     return this.http.get<category[]>(this.url,this.head);
+  } */
+  getCategories(offset: number, limit: number) {
+    return this.http.get(`${this.findUrl}/${offset}/${limit}`)
   }
 }

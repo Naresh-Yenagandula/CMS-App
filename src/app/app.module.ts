@@ -40,7 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { GetProfileComponent } from './profile/get-profile/get-profile.component';
 import { ChangePasswordComponent } from './profile/change-password/change-password.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,8 +83,8 @@ import { ChangePasswordComponent } from './profile/change-password/change-passwo
     MatSelectModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
-
+    MatPaginatorModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

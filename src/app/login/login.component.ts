@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.loginUser(this.loginForm.value).subscribe(result => {
         this.message = "login successfull!";
-        console.log(result);
         localStorage.setItem('token', result);
         this.router.navigate(['dashboard']);
 

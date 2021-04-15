@@ -29,7 +29,7 @@ const routes: Routes = [
     children: [
       { path: '', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
-      { path: 'updatePage', component: UpdatePageComponent }
+      { path: 'updatePage/:id', component: UpdatePageComponent }
     ]
   },
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
     children: [
       { path: '', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
-      { path: 'updateCategory', component: UpdateCategoriesComponent }
+      { path: 'updateCategory/:id', component: UpdateCategoriesComponent }
     ]
   },
   {
@@ -45,7 +45,7 @@ const routes: Routes = [
     children: [
       { path: '', component: GetUsersComponent },
       { path: 'addUser', component: AddUserComponent },
-      { path: 'updateUser', component: UpdateUserComponent }
+      { path: 'updateUser/:id', component: UpdateUserComponent }
     ]
   },
   { path: 'login', component: LoginComponent },

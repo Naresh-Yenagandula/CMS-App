@@ -1,6 +1,6 @@
 <div style="padding-left: 20px;">
   <h3>Update Page</h3>
-  <form class="tp-form" (ngSubmit)="updateForm.valid && onSubmit()" [formGroup]='updateForm' style="text-align: center;">
+  <form class="tp-form" (ngSubmit)="updateForm.valid && updateDetail()" [formGroup]='updateForm' style="text-align: center;">
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
@@ -28,5 +28,6 @@
     </mat-form-field>
 
     <button type="submit" mat-raised-button class="btn-color">Update Page</button>
+    <p *ngIf="message">{{message}}</p>
   </form>
 </div>

@@ -13,8 +13,8 @@
       <ng-container *ngFor="let row of pages.result | paginate:{itemsPerPage:limit,currentPage:pageNo,totalItems:pages.no}">
         <tr>
           <td>{{row.title}}</td>
-          <td>{{row.category}}</td>
-          <td>{{row.author}}</td>
+           <td>{{row.category}}</td>
+          <td>{{row.author}}</td> 
           <td>update</td>
           <td>Delete</td>
         </tr>

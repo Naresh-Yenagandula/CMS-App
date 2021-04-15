@@ -12,48 +12,33 @@ import { Router,ActivatedRoute } from '@angular/router';
   styleUrls: ['./get-categories.component.css']
 })
 export class GetCategoriesComponent implements OnInit {
-  categories=[];
-  p: number = 1;
-  limit: number = 3;
+  categories:any=[];
+  c: number = 1;
+  limit: number = 5;
   total: number;
   dataSource:MatTableDataSource<any>;
   displayedColumns: string[] = ['title','update','delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private cs:CategoriesService,private router:Router,private route:ActivatedRoute) { }
-  getCategories(p:number):void{
-    let offset=(p-1)*this.limit;
-    this.cs.getCategories(offset,this.limit).subscribe((info)=>
-    this.categories=info.map((info)=>({
-      title:info.title
-    }))
-    this.categories=info.total;
-    this.dataSource = new MatTableDataSource(this.categories);
-      this.dataSource.paginator = this.paginator;
-  });
-}
-  
-  /* getcategory(){
-    return this.cs.getCategories().subscribe((data)=>{
-      this.categories = data.map((info)=>({
-        title:info.title
-      }))
-      this.dataSource = new MatTableDataSource(this.categories);
-      this.dataSource.paginator = this.paginator;
+ 
+  getCategories(c:number):void{
+    console.log("fired"+c);
+    let offset=(c-1)*this.limit;
+    this.cs.getCategories(offset,this.limit).subscribe((info)=>{
+    console.log(info);
+    this.categories=info;
     });
-  }  */
-  
-  getPage(pageNo: number) {
-    this.p = pageNo;
-    this.getCategories(this.p);
+    this.total = this.categories.no;
+  }
+  getPage(p):void{
+    this.getCategories(p);
+    this.c = p;
   }
 
-
-  updateCategory():void{
-    this.router.navigate(['updateCategory/'],{relativeTo:this.route});
-  }
   ngOnInit(): void {
-    this.getcategory();
+    this.getCategories(this.c);
   }
-
 }
+  
+  

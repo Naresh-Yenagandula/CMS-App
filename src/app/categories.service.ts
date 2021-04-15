@@ -18,7 +18,13 @@ export class CategoriesService {
  /*  getCategories():Observable<category[]>{
     return this.http.get<category[]>(this.url,this.head);
   } */
-  getCategories(offset: number, limit: number) {
-    return this.http.get(`${this.findUrl}/${offset}/${limit}`)
+  getCategories(offset, limit) {
+    return this.http.get(this.url+`/${offset}/${limit}`,this.head);
+  }
+  getCategory(id):Observable<any>{
+    return this.http.put<category>(this.findUrl+id,this.head);
+  }
+  upadateCategory(c,id):Observable<category>{
+    return this.http.put<category>(this.url+"/"+id,c,this.head);
   }
 }

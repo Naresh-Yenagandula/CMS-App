@@ -12,28 +12,27 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./get-pages.component.css']
 })
 export class GetPagesComponent implements OnInit {
-  pages=[];
+  pages:any=[];
+  pageNo:number =1;
+  limit:number=5;
+  total:number; 
   dataSource:MatTableDataSource<any>;
   displayedColumns: string[] = ['title','category','author','update','delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
-  getPages():void{
-     this.pageService.getPages().subscribe((info)=>{
-      this.pages = info.map((data)=>({
-        id:data._id,
-        title:data.title,
-        category:data.category,
-        author:data.author
-      }))
-      this.dataSource = new MatTableDataSource(this.pages);
-      this.dataSource.paginator = this.paginator;
+  getPages(pageNo):void{
+    console.log("fired"+pageNo);
+    
+    let offset = (pageNo-1)*this.limit;
+     this.pageService.getPages(offset,this.limit).subscribe((info)=>{
+       console.log(info);
+       
+        this.pages=info;
     });
+    this.total = this.pages.no;
   }
   ngOnInit(): void {
-    this.getPages();
+    this.getPages(this.pageNo);
   }
-  // updatePage():void{
-  //   this.router.navigate(['updatePage'],{relativeTo:this.route});
-  // }
 }

@@ -1,28 +1,27 @@
-<div class="mat-elevation-z3">
-  <table mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Title </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-    </ng-container>
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-    </ng-container>
-    <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef> Author </th>
-      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-    </ng-container>
-    <ng-container matColumnDef="update">
-      <th mat-header-cell *matHeaderCellDef> Update </th>
-      <td mat-cell *matCellDef="let element"><mat-icon routerLink="updatePage/{{element.id}}">edit</mat-icon></td>
-    </ng-container>
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let element"><mat-icon>delete</mat-icon></td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of pages.result | paginate:{itemsPerPage:limit,currentPage:pageNo,totalItems:pages.no}">
+        <tr>
+          <td>{{row.title}}</td>
+          <td>{{row.category}}</td>
+          <td>{{row.author}}</td>
+          <td>update</td>
+          <td>Delete</td>
+        </tr>
+      </ng-container>
+    </tbody>
   </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 7]" showFirstLastButtons></mat-paginator>
+  <div class="pagination pagination-sm m-0 float-right">
+    <pagination-controls (pageChange)="getPages($event)"></pagination-controls>
+  </div>
 </div>

@@ -13,27 +13,32 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class GetUsersComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
-  users=[];
+  users :any=[];
+  p :number =1;
+  limit :number =5;
+  total:number;
   dataSource:MatTableDataSource<any>;
   displayedColumns: string[] = ['full_name', 'email', 'group','update','delete'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  getUsers():void{
-    this.userService.getUsers().subscribe((info)=>{
-      this.users = info.map((info)=>({
-        name:info.name,
-        email:info.email,
-        password:info.password,
-        group:info.group
-      }))
-      this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
+
+  getUsers(p):void{
+    let offset=(p-1)*this.limit;
+
+    this.userService.getUsers(offset,this.limit).subscribe((info)=>{
+      this.users = info;
     });
+    this.total = this.users.no;
+  }
+
+  getPage(pNo:number){
+    this.p=pNo;
+    this.getUsers(this.p);
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getUsers(this.p);
   }
 
   updateUser():void{

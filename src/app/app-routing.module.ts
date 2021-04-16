@@ -23,7 +23,7 @@ import { ChangePasswordComponent } from './profile/change-password/change-passwo
 import { AuthGuardService } from './auth-guard.service';
 import {DeletePageComponent} from './pages/delete-page/delete-page.component';
 import {DeleteCategoriesComponent} from './categories/delete-categories/delete-categories.component';
-
+import {DeleteUserComponent} from "./users/delete-user/delete-user.component";
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -51,7 +51,8 @@ const routes: Routes = [
     children: [
       { path: '', component: GetUsersComponent },
       { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
-      { path: 'updateUser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } }
+      { path: 'updateUser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
+      {path:'deleteUser/:id',component:DeleteUserComponent}
     ]
   },
   { path: 'login', component: LoginComponent },

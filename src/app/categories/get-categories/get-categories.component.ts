@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoriesService } from '../../categories.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class GetCategoriesComponent implements OnInit {
   limit: number = 5;
   total: number;
 
-  constructor(private cs: CategoriesService) { }
+  constructor(private cs: CategoriesService,private router:Router) { }
 
   getCategories(c: number): void {
     let offset = (c - 1) * this.limit;
@@ -25,7 +26,12 @@ export class GetCategoriesComponent implements OnInit {
     this.getCategories(p);
     this.c = p;
   }
-
+  update(id):void{
+    this.router.navigate(['categories/updateCategory/'+id]);
+  }
+  delete(id):void{
+    this.router.navigate(['categories/deleteCategory/'+id]);
+  }
   ngOnInit(): void {
     this.getPage(this.c);
   }

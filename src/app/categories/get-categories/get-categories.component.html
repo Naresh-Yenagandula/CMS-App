@@ -13,10 +13,10 @@
         <tr>
           <td>{{row.title}}</td>
           <td>
-            <mat-icon routerLink='updateCategory/{{row._id}}'>edit</mat-icon>
+            <mat-icon (click)="update(row._id)">edit</mat-icon>
           </td>
           <td>
-            <mat-icon routerLink="deleteCategory/{{row._id}}">delete</mat-icon>
+            <mat-icon (click)="delete(row._id)">delete</mat-icon>
           </td>
         </tr>
       </ng-container>

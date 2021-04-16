@@ -28,6 +28,12 @@ export class GetPagesComponent implements OnInit {
    this.getPages(p);
    this.pageNo=p;
  }
+ update(id):void{
+   this.router.navigate(['pages/updatePage/'+id]);
+ }
+ delete(id):void{
+   this.router.navigate(['pages/deletePage/'+id]);
+ }
   ngOnInit(): void {
     this.pageNo = parseInt(this.route.snapshot.paramMap.get('no'));
     this.getPages(this.pageNo);

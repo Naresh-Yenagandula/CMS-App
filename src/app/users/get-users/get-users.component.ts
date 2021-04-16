@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {UsersService} from '../../users.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class GetUsersComponent implements OnInit {
   limit :number =5;
   total:number;
 
-  constructor(private userService:UsersService) { }
+  constructor(private userService:UsersService,private router:Router) { }
 
   getUsers(p):void{
     let offset=(p-1)*this.limit;
@@ -26,6 +27,12 @@ export class GetUsersComponent implements OnInit {
   getPage(p:number){
     this.pNo=p;
     this.getUsers(this.pNo);
+  }
+  update(id):void{
+    this.router.navigate(['users/updateUser/'+id]);
+  }
+  delete(id):void{
+    this.router.navigate(['users/deleteUser/'+id]);
   }
 
   ngOnInit(): void {

@@ -12,8 +12,8 @@ export class UpdatePageComponent implements OnInit {
   updateForm: FormGroup;
   message: String = "";
 
-  category = ['category one', 'category two', 'category three'];
-  author = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
+  categorys = ['category one', 'category two', 'category three'];
+  authors = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private pageService: PagesService) { }
 
   updateDetail(): void {
@@ -29,8 +29,8 @@ export class UpdatePageComponent implements OnInit {
     this.pageService.getPage(id).subscribe((data) => {
       this.updateForm.setValue({
         title: data.title,
-        categorySelected: data.category,
-        authorSelected: data.author
+        category: data.category,
+        author: data.author
       })
     })
   }
@@ -38,8 +38,8 @@ export class UpdatePageComponent implements OnInit {
   ngOnInit(): void {
     this.updateForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-      categorySelected: ['', [Validators.required]],
-      authorSelected: ['', [Validators.required]]
+      category: ['', [Validators.required]],
+      author: ['', [Validators.required]]
     })
     this.getPageDetail();
   }

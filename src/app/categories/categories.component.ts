@@ -12,6 +12,9 @@ export class CategoriesComponent implements OnInit {
   addCategory():void{
     this.router.navigate(['addCategory'],{relativeTo:this.route})
   }
+  updateCategory():void{
+    this.router.navigate(['updateCategory'],{relativeTo:this.route});
+  }
   ngOnInit(): void {
   }
 

@@ -45,11 +45,7 @@ const routes: Routes = [
       { path: 'get/:no', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
       { path: 'updateCategory/:id', component: UpdateCategoriesComponent },
-<<<<<<< HEAD
-      {path:'deleteCategory/:id',component:DeleteCategoriesComponent}
-=======
       {path: 'deleteCategory/:id',component:DeleteCategoriesComponent}
->>>>>>> main
     ]
   },
   {

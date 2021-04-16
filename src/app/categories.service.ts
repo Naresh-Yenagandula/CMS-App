@@ -27,7 +27,5 @@ export class CategoriesService {
   deleteCategory(id): Observable<any> {
     return this.http.delete<any>(this.url + '/' + id, this.head);
   }
-  deleteCategory(id):Observable<any>{
-    return this.http.delete<any>(this.url+`/${id}`,this.head);
-  }
+ 
 }

@@ -21,6 +21,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { GetProfileComponent } from './profile/get-profile/get-profile.component';
 import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 import { AuthGuardService } from './auth-guard.service';
+import {DeletePageComponent} from './pages/delete-page/delete-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
     children: [
       { path: '', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
-      { path: 'updatePage/:id', component: UpdatePageComponent }
+      { path: 'updatePage/:id', component: UpdatePageComponent },
+      {path:'deletePage/:id',component:DeletePageComponent}
     ]
   },
   {

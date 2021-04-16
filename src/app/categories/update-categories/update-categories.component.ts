@@ -10,15 +10,15 @@ import { CategoriesService } from 'src/app/categories.service';
 })
 export class UpdateCategoriesComponent implements OnInit {
   categoryForm:FormGroup;
-  message:String="";
+  message:boolean=false;
   title = ['category one','category two', 'category three'];
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private categoryService:CategoriesService) { }
   updateDetail():void{
     const id = this.route.snapshot.paramMap.get('id');
     this.categoryService.upadateCategory(this.categoryForm.value,id).subscribe((data)=>{
-      this.message = "Updated Successfully";
+      this.message = true;
     },(error)=>{
-      this.message = error.message;
+      this.message = false;
     })
   }
   getCategoryDetail():void{

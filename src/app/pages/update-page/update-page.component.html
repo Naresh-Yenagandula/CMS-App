@@ -1,5 +1,5 @@
 
- <div style="padding-left: 20px;">
+ <div style="padding-left: 20px;" *ngIf="!message">
   <h3>Update Page</h3>
   <form class="tp-form" (ngSubmit)="updateForm.valid && updateDetail()" [formGroup]='updateForm'
     style="text-align: center;">
@@ -31,6 +31,13 @@
     </mat-form-field>
 
     <button type="submit" mat-raised-button class="btn-color">Update Page</button>
-    <p *ngIf="message">{{message}}</p>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">Page Updated!</h3>
+    </div>
+  </div>
 </div>

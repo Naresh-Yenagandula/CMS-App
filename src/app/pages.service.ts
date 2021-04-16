@@ -24,4 +24,7 @@ export class PagesService {
   updatePage(p, id): Observable<page> {
     return this.http.put<page>(this.url + "/" + id, p, this.head);
   }
+  deletePage(id):Observable<any>{
+    return this.http.delete<any>(this.url+`/${id}`,this.head);
+  }
 }

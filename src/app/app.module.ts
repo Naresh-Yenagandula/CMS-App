@@ -18,6 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { NavbarComponent } from './defaults/navbar/navbar.component';
@@ -82,7 +83,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatSelectModule,
     HttpClientModule,
     NgxPaginationModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
 
   ],
   providers: [],

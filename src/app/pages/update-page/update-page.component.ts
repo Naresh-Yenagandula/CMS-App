@@ -10,7 +10,7 @@ import { PagesService } from "../../pages.service";
 })
 export class UpdatePageComponent implements OnInit {
   updateForm: FormGroup;
-  message: String = "";
+  message:boolean=false;
 
   categorys = ['category one', 'category two', 'category three'];
   authors = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
@@ -19,9 +19,9 @@ export class UpdatePageComponent implements OnInit {
   updateDetail(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.pageService.updatePage(this.updateForm.value, id).subscribe((data) => {
-      this.message = "Updated Successfully";
+      this.message = true;
     }, (error) => {
-      this.message = error.message;
+      this.message = false;
     })
   }
   getPageDetail(): void {

@@ -1,6 +1,6 @@
 <div style="padding-left: 20px;">
   <h3>Update Category</h3>
-  <form class="tp-form" style="text-align: center;" (ngSubmit)="categoryForm.valid && onSubmit()" [formGroup]='categoryForm'>
+  <form class="tp-form" style="text-align: center;" (ngSubmit)="categoryForm.valid && updateDetail()" [formGroup]='categoryForm'>
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Category Title</mat-label>
@@ -12,5 +12,6 @@
     </mat-form-field>
 
     <button type="submit" mat-raised-button class="btn-color">Update Category</button>
+    <p *ngIf="message">{{message}}</p>
   </form>
 </div>

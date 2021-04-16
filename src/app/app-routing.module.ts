@@ -50,6 +50,7 @@ const routes: Routes = [
     path: 'users', component: UsersComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' },
     children: [
       { path: '', component: GetUsersComponent },
+      { path: 'get/:no', component: GetUsersComponent },
       { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
       { path: 'updateUser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
       {path:'deleteUser/:id',component:DeleteUserComponent}

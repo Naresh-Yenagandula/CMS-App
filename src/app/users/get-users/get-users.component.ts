@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import {UsersService} from '../../users.service';
 
 @Component({
@@ -14,19 +14,19 @@ export class GetUsersComponent implements OnInit {
   limit :number =5;
   total:number;
 
-  constructor(private userService:UsersService,private router:Router) { }
+  constructor(private route:ActivatedRoute,private userService:UsersService,private router:Router) { }
 
   getUsers(p):void{
     let offset=(p-1)*this.limit;
-    this.userService.getUsers(offset,this.limit).subscribe((info)=>{
+    this.userService.getUsers(offset,).subscribe((info)=>{
       this.users = info;
     });
     this.total = this.users.no;
   }
-
-  getPage(p:number){
+  navigate(p):void{
+    this.router.navigate(['users/get/'+p]);
+    this.getUsers(p);
     this.pNo=p;
-    this.getUsers(this.pNo);
   }
   update(id):void{
     this.router.navigate(['users/updateUser/'+id]);
@@ -36,7 +36,8 @@ export class GetUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPage(this.pNo);
+    this.pNo = parseInt(this.route.snapshot.paramMap.get('no'));
+    this.getUsers(this.pNo);
   }
 
 }

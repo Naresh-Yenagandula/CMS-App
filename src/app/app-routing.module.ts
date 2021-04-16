@@ -22,15 +22,16 @@ import { GetProfileComponent } from './profile/get-profile/get-profile.component
 import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 import { AuthGuardService } from './auth-guard.service';
 import {DeletePageComponent} from './pages/delete-page/delete-page.component';
-import { DeleteCategoriesComponent } from './categories/delete-categories/delete-categories.component';
-
+import {DeleteCategoriesComponent} from './categories/delete-categories/delete-categories.component';
+import {DeleteUserComponent} from "./users/delete-user/delete-user.component";
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   {
     path: 'pages', component: PagesComponent,
     children: [
-      { path: '', component: GetPagesComponent },
+      {path:'',component:GetPagesComponent},
+      { path: 'get/:no', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
       { path: 'updatePage/:id', component: UpdatePageComponent },
       {path:'deletePage/:id',component:DeletePageComponent},
@@ -41,9 +42,14 @@ const routes: Routes = [
     path: 'categories', component: CategoriesComponent,
     children: [
       { path: '', component: GetCategoriesComponent },
+      { path: 'get/:no', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
       { path: 'updateCategory/:id', component: UpdateCategoriesComponent },
+<<<<<<< HEAD
       {path:'deleteCategory/:id',component:DeleteCategoriesComponent}
+=======
+      {path: 'deleteCategory/:id',component:DeleteCategoriesComponent}
+>>>>>>> main
     ]
   },
   {
@@ -51,7 +57,8 @@ const routes: Routes = [
     children: [
       { path: '', component: GetUsersComponent },
       { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
-      { path: 'updateUser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } }
+      { path: 'updateUser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService], data: { expectedRole: 'Admin' } },
+      {path:'deleteUser/:id',component:DeleteUserComponent}
     ]
   },
   { path: 'login', component: LoginComponent },

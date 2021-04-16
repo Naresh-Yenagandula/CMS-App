@@ -18,16 +18,16 @@
           <td>{{row.category}}</td>
           <td>{{row.author}}</td>
           <td>
-            <mat-icon routerLink='updatePage/{{row._id}}'>edit</mat-icon>
+            <mat-icon (click)='update(row._id)'>edit</mat-icon>
           </td>
           <td>
-            <mat-icon routerLink="deletePage/{{row._id}}">delete</mat-icon>
+            <mat-icon (click)="delete(row._id)">delete</mat-icon>
           </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
   <div class="pull-right">
-    <pagination-controls (pageChange)="getPage($event)" previousLabel="Prev" nextLabel="Next"></pagination-controls>
+    <pagination-controls (pageChange)="navigate($event)" previousLabel="Prev" nextLabel="Next"></pagination-controls>
   </div>
 </div>

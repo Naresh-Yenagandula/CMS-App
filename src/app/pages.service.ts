@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { page } from './page';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class PagesService {
   addPages(p: page): Observable<page> {
     return this.http.post<page>(this.url, p, this.head);
   }
-  getPages(offset: number, limit: number) {
-    return this.http.get(this.url + `/${offset}/${limit}`, this.head);
+  getPages(offset) {
+    return this.http.get(this.url+`/${offset}`,this.head);
   }
   getPage(id): Observable<any> {
     return this.http.get<any>(this.findUrl + id, this.head);

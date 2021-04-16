@@ -13,6 +13,9 @@ export class UsersComponent implements OnInit {
   addUser():void{
     this.router.navigate(['addUser'],{relativeTo:this.route})
   }
+  updateUser():void{
+    this.router.navigate(['updateUser'],{relativeTo:this.route});
+  }
   ngOnInit(): void {
   }
 

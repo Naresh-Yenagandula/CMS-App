@@ -17,17 +17,25 @@ export class GetPagesComponent implements OnInit {
 
   getPages(pageNo):void{
     let offset = (pageNo-1)*this.limit;
-     this.pageService.getPages(offset,this.limit).subscribe((info)=>{
+     this.pageService.getPages(offset).subscribe((info)=>{
         this.pages=info;
     });
     this.total = this.pages.no;
   }
 
-  getPage(p):void{
-    this.getPages(p);
-    this.pageNo  = p;
-  }
+ navigate(p):void{
+   this.router.navigate(['pages/get/'+p]);
+   this.getPages(p);
+   this.pageNo=p;
+ }
+ update(id):void{
+   this.router.navigate(['pages/updatePage/'+id]);
+ }
+ delete(id):void{
+   this.router.navigate(['pages/deletePage/'+id]);
+ }
   ngOnInit(): void {
-    this.getPage(this.pageNo);
+    this.pageNo = parseInt(this.route.snapshot.paramMap.get('no'));
+    this.getPages(this.pageNo);
   }
 }

@@ -24,4 +24,7 @@ export class CategoriesService {
   upadateCategory(p,id):Observable<category>{
     return this.http.put<category>(this.url+"/"+id,p,this.head);
   }
+  deleteCategory(id):Observable<any>{
+    return this.http.delete<any>(this.url+`/${id}`,this.head);
+  }
 }

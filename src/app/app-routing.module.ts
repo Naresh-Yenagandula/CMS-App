@@ -22,6 +22,7 @@ import { GetProfileComponent } from './profile/get-profile/get-profile.component
 import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 import { AuthGuardService } from './auth-guard.service';
 import {DeletePageComponent} from './pages/delete-page/delete-page.component';
+import { DeleteCategoriesComponent } from './categories/delete-categories/delete-categories.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -32,7 +33,8 @@ const routes: Routes = [
       { path: '', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
       { path: 'updatePage/:id', component: UpdatePageComponent },
-      {path:'deletePage/:id',component:DeletePageComponent}
+      {path:'deletePage/:id',component:DeletePageComponent},
+
     ]
   },
   {
@@ -40,7 +42,8 @@ const routes: Routes = [
     children: [
       { path: '', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
-      { path: 'updateCategory/:id', component: UpdateCategoriesComponent }
+      { path: 'updateCategory/:id', component: UpdateCategoriesComponent },
+      {path:'deleteCategory/:id',component:DeleteCategoriesComponent}
     ]
   },
   {

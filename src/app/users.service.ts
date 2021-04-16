@@ -20,16 +20,24 @@ export class UsersService {
     return this.http.post<user>(this.url, u, this.head);
   }
 
-  updateUsers(u): Observable<user> {
-    return this.http.put<user>(this.url, u, this.head);
+  updateUsers(u,id): Observable<user> {
+    return this.http.put<user>(this.getDataUrl+ "/" + id, u, this.head);
   }
 
   getUsers(offset: number, limit: number) {
     return this.http.get(`${this.getDataUrl}/${offset}/${limit}`, this.head);
   }
 
+  getUser(id): Observable<any> {
+    return this.http.get<any>(this.findUrl + id, this.head);
+  }
+
   getName(): Observable<any> {
     return this.http.get<any>(this.urlInfo, { params: new HttpParams().append('token', localStorage.getItem('token')) });
+  }
+
+  deleteUser(id):Observable<any>{
+    return this.http.delete<any>(this.getDataUrl+`/${id}`,this.head);
   }
 
 }

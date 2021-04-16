@@ -16,7 +16,7 @@
           <td>{{row.email}}</td>
           <td>{{row.group}}</td>
           <td><mat-icon routerLink="updateUser/{{row._id}}">edit</mat-icon></td>
-          <td><mat-icon>delete</mat-icon></td>
+          <td><mat-icon routerLink="deleteUser/{{row._id}}">delete</mat-icon></td>
         </tr>
       </ng-container>
     </tbody>

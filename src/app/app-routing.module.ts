@@ -41,6 +41,7 @@ const routes: Routes = [
     path: 'categories', component: CategoriesComponent,
     children: [
       { path: '', component: GetCategoriesComponent },
+      { path: 'get/:no', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
       { path: 'updateCategory/:id', component: UpdateCategoriesComponent },
       {path: 'deleteCategory/:id',component:DeleteCategoriesComponent}

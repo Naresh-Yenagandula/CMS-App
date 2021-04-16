@@ -29,7 +29,8 @@ const routes: Routes = [
   {
     path: 'pages', component: PagesComponent,
     children: [
-      { path: '', component: GetPagesComponent },
+      {path:'',component:GetPagesComponent},
+      { path: 'get/:no', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
       { path: 'updatePage/:id', component: UpdatePageComponent },
       {path:'deletePage/:id',component:DeletePageComponent}

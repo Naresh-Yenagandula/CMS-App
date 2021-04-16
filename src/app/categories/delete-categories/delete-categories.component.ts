@@ -15,7 +15,7 @@ export class DeleteCategoriesComponent implements OnInit {
     private catservice: CategoriesService
   ) {}
   deleteCategory(): void {
-    if (confirm('Are you sure to delete this') == true) {
+    if (confirm('Are you sure to delete this record?') == true) {
       const id = this.route.snapshot.paramMap.get('id');
       this.catservice.deleteCategory(id).subscribe((data) => {
         this.message = true;
@@ -23,5 +23,7 @@ export class DeleteCategoriesComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.deleteCategory();
+  }
 }

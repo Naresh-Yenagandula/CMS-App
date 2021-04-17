@@ -15,8 +15,8 @@ export class CategoriesService {
   addcategory(c: category): Observable<category> {
     return this.http.post<category>(this.url, c, this.head);
   }
-  getCategories(offset, limit) {
-    return this.http.get(this.url + `/${offset}/${limit}`, this.head);
+  getCategories(offset) {
+    return this.http.get(this.url + `/${offset}`, this.head);
   }
   getCategory(id): Observable<any> {
     return this.http.get<category>(this.findUrl + id, this.head);
@@ -27,4 +27,5 @@ export class CategoriesService {
   deleteCategory(id): Observable<any> {
     return this.http.delete<any>(this.url + '/' + id, this.head);
   }
+ 
 }

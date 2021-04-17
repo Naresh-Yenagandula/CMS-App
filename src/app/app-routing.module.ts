@@ -34,13 +34,15 @@ const routes: Routes = [
       { path: 'get/:no', component: GetPagesComponent },
       { path: 'addPage', component: AddPageComponent },
       { path: 'updatePage/:id', component: UpdatePageComponent },
-      {path:'deletePage/:id',component:DeletePageComponent}
+      {path:'deletePage/:id',component:DeletePageComponent},
+
     ]
   },
   {
     path: 'categories', component: CategoriesComponent,
     children: [
       { path: '', component: GetCategoriesComponent },
+      { path: 'get/:no', component: GetCategoriesComponent },
       { path: 'addCategory', component: AddCategoriesComponent },
       { path: 'updateCategory/:id', component: UpdateCategoriesComponent },
       {path: 'deleteCategory/:id',component:DeleteCategoriesComponent}

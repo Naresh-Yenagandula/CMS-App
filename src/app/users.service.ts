@@ -24,8 +24,8 @@ export class UsersService {
     return this.http.put<user>(this.getDataUrl+ "/" + id, u, this.head);
   }
 
-  getUsers(offset: number, limit: number) {
-    return this.http.get(`${this.getDataUrl}/${offset}/${limit}`, this.head);
+  getUsers(offset) {
+    return this.http.get(`${this.getDataUrl}/${offset}`, this.head);
   }
 
   getUser(id): Observable<any> {

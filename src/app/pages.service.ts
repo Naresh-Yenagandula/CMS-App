@@ -8,8 +8,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class PagesService {
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:3000/getdata/pages';
-  findUrl = 'http://localhost:3000/getdata/page/';
+  url = 'https://cms-node-app.herokuapp.com/getdata/pages';
+  findUrl = 'https://cms-node-app.herokuapp.com/getdata/page/';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addPages(p: page): Observable<page> {

@@ -10,10 +10,10 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/api/user/register';
-  urlInfo = "http://localhost:3000/verify/data";
-  getDataUrl = "http://localhost:3000/getData/users";
-  findUrl = 'http://localhost:3000/getdata/user/';
+  url = 'https://cms-node-app.herokuapp.com/api/user/register';
+  urlInfo = "https://cms-node-app.herokuapp.com/verify/data";
+  getDataUrl = "https://cms-node-app.herokuapp.com/getData/users";
+  findUrl = 'https://cms-node-app.herokuapp.com/getdata/user/';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addUsers(u: user): Observable<user> {

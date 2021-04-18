@@ -8,8 +8,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class CategoriesService {
   constructor(private http: HttpClient) {}
-  url = 'http://localhost:3000/getdata/categories';
-  findUrl = 'http://localhost:3000/getdata/category/';
+  url = 'https://cms-node-app.herokuapp.com/getdata/categories';
+  findUrl = 'https://cms-node-app.herokuapp.com/getdata/category/';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addcategory(c: category): Observable<category> {

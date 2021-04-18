@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthLoginService {
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:3000/api/user/login';
+  url = 'https://cms-node-app.herokuapp.com/api/user/login';
   head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   loginUser(data): Observable<any> {

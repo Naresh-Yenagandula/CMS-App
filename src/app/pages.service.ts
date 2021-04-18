@@ -27,4 +27,7 @@ export class PagesService {
   deletePage(id):Observable<any>{
     return this.http.delete<any>(this.url+`/${id}`,this.head);
   }
+  getLatestPages():Observable<any>{
+    return this.http.get<any>(this.url,this.head);
+  }
 }

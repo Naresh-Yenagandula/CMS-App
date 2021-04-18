@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { UpdatePageComponent } from './update-page.component';
 
@@ -8,7 +11,8 @@ describe('UpdatePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdatePageComponent ]
+      declarations: [ UpdatePageComponent ],
+      imports:[ReactiveFormsModule,HttpClientModule,RouterModule.forRoot([])]
     })
     .compileComponents();
   });

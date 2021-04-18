@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { GetPagesComponent } from './get-pages.component';
 
@@ -8,7 +12,8 @@ describe('GetPagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetPagesComponent ]
+      declarations: [ GetPagesComponent ],
+      imports:[ReactiveFormsModule,HttpClientModule,RouterModule.forRoot([]),NgxPaginationModule]
     })
     .compileComponents();
   });

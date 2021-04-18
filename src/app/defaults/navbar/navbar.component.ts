@@ -11,11 +11,11 @@ export class NavbarComponent implements OnInit {
   name: String = "";
   constructor(private userService: UsersService, private router: Router) { }
   getName(): void {
-    this.userService.getName().subscribe(data => {
+    this.userService.getName().subscribe((data) => {
       this.name = data.name.name;
     },
-      error => {
-        this.router.navigate(['login'])
+      (error) => {
+        this.router.navigate(['login'],{skipLocationChange:true})
       }
     )
   }

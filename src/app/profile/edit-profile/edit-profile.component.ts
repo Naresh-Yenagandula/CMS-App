@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-  group = ['Admin','Registered']
+  groups = ['Admin','Registered']
   userForm:FormGroup;
   constructor(private fb:FormBuilder) { }
   onSubmit(){

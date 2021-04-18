@@ -23,38 +23,13 @@
             <th>Category</th>
             <th>Author</th>
           </tr>
-
-          <tr>
-            <td><a href="page.html">Sample Page One</a></td>
-            <td>Category One</td>
-            <td>John Wick</td>
-          </tr>
-
-          <tr>
-            <td><a href="page.html">Sample Page Two</a></td>
-            <td>Category Two</td>
-            <td>Vicky Nash</td>
-          </tr>
-
-          <tr>
-            <td><a href="page.html">Sample Page Three</a></td>
-            <td>Category One</td>
-            <td>Jenni lora</td>
-          </tr>
-
-          <tr>
-            <td><a href="page.html">Sample Page Four</a></td>
-            <td>Category Three</td>
-            <td>Haley maya</td>
-          </tr>
-
-          <tr>
-            <td><a href="page.html">Sample Page Five</a></td>
-            <td>Category Two</td>
-            <td>Austen Paige</td>
+          <tr *ngFor="let page of pages">
+            <td>{{page.title}}</td>
+            <td>{{page.category}}</td>
+            <td>{{page.author}}</td>
           </tr>
         </table>
-        <a class="btn btn-default" href="pages.html">View All Pages</a>
+        <a class="btn btn-default" routerLink="/pages">View All Pages</a>
         <hr />
 
         <h3>Latest Users</h3>
@@ -64,38 +39,13 @@
             <th>Email</th>
             <th>Group</th>
           </tr>
-
-          <tr>
-            <td><a href="user.html">Austen Paige</a></td>
-            <td>paige@info.com</td>
-            <td>Admin</td>
-          </tr>
-
-          <tr>
-            <td><a href="user.html">Vicky Nash</a></td>
-            <td>vicky@info.com</td>
-            <td>Admin</td>
-          </tr>
-
-          <tr>
-            <td><a href="user.html">John Wick</a></td>
-            <td>wick@info.com</td>
-            <td>Registered</td>
-          </tr>
-
-          <tr>
-            <td><a href="user.html">Haley maya</a></td>
-            <td>maya@info.com</td>
-            <td>Admin</td>
-          </tr>
-
-          <tr>
-            <td><a href="user.html">Jenni lora</a></td>
-            <td>jenni@info.com</td>
-            <td>Registered</td>
+          <tr *ngFor = "let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.group}}</td>
           </tr>
         </table>
-        <a class="btn btn-default" href="users.html">View All Users</a>
+        <a class="btn btn-default" routerLink='/users'>View All Users</a>
         <hr />
       </div>
     </div>

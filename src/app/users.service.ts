@@ -40,4 +40,8 @@ export class UsersService {
     return this.http.delete<any>(this.getDataUrl+`/${id}`,this.head);
   }
 
+  getLatestUsers():Observable<any>{
+    return this.http.get<any>(this.getDataUrl,this.head);
+  }
+
 }

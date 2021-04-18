@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { CategoriesComponent } from './categories.component';
 
@@ -8,7 +11,8 @@ describe('CategoriesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoriesComponent ]
+      declarations: [ CategoriesComponent ],
+      imports:[ReactiveFormsModule,HttpClientModule,RouterModule.forRoot([])]
     })
     .compileComponents();
   });

@@ -25,4 +25,7 @@ describe('ChangePasswordComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Should return Object',()=>{
+    expect(component.onSubmit()).toEqual(jasmine.any(Object));
+  })
 });

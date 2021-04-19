@@ -1,6 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { UpdatePageComponent } from './update-page.component';
@@ -12,7 +16,7 @@ describe('UpdatePageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ UpdatePageComponent ],
-      imports:[ReactiveFormsModule,HttpClientModule,RouterModule.forRoot([])]
+      imports:[ReactiveFormsModule,HttpClientModule,RouterModule.forRoot([]),FormsModule,MatSelectModule,BrowserAnimationsModule,MatInputModule]
     })
     .compileComponents();
   });

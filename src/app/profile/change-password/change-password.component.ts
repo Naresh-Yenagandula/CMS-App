@@ -11,7 +11,8 @@ export class ChangePasswordComponent implements OnInit {
   changePassword:FormGroup;
   constructor(private fb:FormBuilder) { }
   onSubmit(){
-    console.log(this.changePassword.value);
+    // console.log(this.changePassword.value);
+    return this.changePassword.value;
   }
 
   ngOnInit(): void {

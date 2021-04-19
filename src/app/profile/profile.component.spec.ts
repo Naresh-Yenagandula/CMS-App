@@ -26,4 +26,16 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('edit should return true',()=>{
+    expect(component.edit()).toBeTruthy();
+  })
+
+  it('get should return true',()=>{
+    expect(component.get()).toBeTruthy();
+  })
+
+  it('change password should return true',()=>{
+    expect(component.changePassword()).toBeTruthy();
+  })
 });

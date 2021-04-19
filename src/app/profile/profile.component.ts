@@ -9,14 +9,17 @@ import { ActivatedRoute,Router } from "@angular/router";
 export class ProfileComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private router:Router) { }
-  edit():void{
-    this.router.navigate(['edit'],{relativeTo:this.route})
+  edit():boolean{
+    this.router.navigate(['edit'],{relativeTo:this.route});
+    return true;
   }
-  get():void{
-    this.router.navigate(['profile'])
+  get():boolean{
+    this.router.navigate(['profile']);
+    return true;
   }
-  changePassword():void{
+  changePassword():boolean{
     this.router.navigate(['changePassword'],{relativeTo:this.route});
+    return true;
   }
 
   ngOnInit(): void {

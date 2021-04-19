@@ -26,4 +26,20 @@ describe('UpdateCategoriesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check the message is false', ()=>{
+    expect(component.message).toBeFalsy();
+    // expect(component.message).toBeTruthy();
+  })
+  // it('Should execute update detail once',()=>{
+  //   spyOn(component,'updateDetail');
+  //   component.updateDetail();
+  //   expect(component.updateDetail.calls.count()).toBe(1);
+  // })
 });
+
+// describe('Update category',()=>{
+//   it("should update",()=>{
+//     expect(updateDetail()).toBeTruthy();
+//   })
+// });

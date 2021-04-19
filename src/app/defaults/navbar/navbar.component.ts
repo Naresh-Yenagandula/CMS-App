@@ -9,9 +9,10 @@ import { Router } from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
   name: String = "";
+  group:String = "";
   constructor(private userService: UsersService, private router: Router) { }
   getName(): void {
-    this.userService.getName().subscribe((data) => {
+    this.userService.getName().subscribe((data) => {  
       this.name = data.name.name;
     },
       (error) => {

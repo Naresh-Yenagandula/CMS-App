@@ -12,7 +12,7 @@ export class EditProfileComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
   onSubmit(){
     console.log(this.userForm.value);
-    
+    return this.userForm.value;
   }
 
   ngOnInit(): void {

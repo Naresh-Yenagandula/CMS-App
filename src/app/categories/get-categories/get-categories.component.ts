@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../categories.service';
 
 @Component({
@@ -13,30 +13,34 @@ export class GetCategoriesComponent implements OnInit {
   limit: number = 5;
   total: number;
 
-  constructor(private cs: CategoriesService,private router:Router,private route:ActivatedRoute) { }
+  constructor(private cs: CategoriesService, private router: Router, private route: ActivatedRoute) { }
 
   getCategories(c): void {
     let offset = (c - 1) * this.limit;
-      this.cs.getCategories(offset).subscribe((info)=>{
-        this.categories=info;
+    this.cs.getCategories(offset).subscribe((info) => {
+      this.categories = info;
     });
     this.total = this.categories.no;
   }
-  navigate(p):void{
-    this.router.navigate(['categories/get/'+p]);
+  navigate(p): void {
+    this.router.navigate(['categories/get/' + p]);
     this.getCategories(p);
-    this.c=p;
+    this.c = p;
   }
-  
-  update(id):void{
-    this.router.navigate(['categories/updateCategory/'+id]);
+
+  update(id): void {
+    this.router.navigate(['categories/updateCategory/' + id]);
   }
-  delete(id):void{
-    this.router.navigate(['categories/deleteCategory/'+id]);
+  delete(id): void {
+    this.router.navigate(['categories/deleteCategory/' + id]);
   }
   ngOnInit(): void {
-    this.c=parseInt(this.route.snapshot.paramMap.get('no'));
-    this.getCategories(this.c);
+    this.c = parseInt(this.route.snapshot.paramMap.get('no'));
+    if (isNaN(this.c)) {
+      this.getCategories(1);
+    } else {
+      this.getCategories(this.c);
+    }
   }
 }
 

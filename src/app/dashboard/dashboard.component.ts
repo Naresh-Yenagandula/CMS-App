@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PagesService} from '../pages.service';
 import {UsersService} from '../users.service';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
   users = [];
 
   constructor(private pageService:PagesService,private userService:UsersService) { }
-
+  
   getLatestPages():void{
     this.pageService.getLatestPages().subscribe((data)=>{
       this.pages = data;

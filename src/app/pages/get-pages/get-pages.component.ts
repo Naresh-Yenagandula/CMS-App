@@ -36,6 +36,10 @@ export class GetPagesComponent implements OnInit {
  }
   ngOnInit(): void {
     this.pageNo = parseInt(this.route.snapshot.paramMap.get('no'));
-    this.getPages(this.pageNo);
+    if(isNaN(this.pageNo)){
+      this.getPages(1);
+    }else{
+      this.getPages(this.pageNo);
+    }
   }
 }

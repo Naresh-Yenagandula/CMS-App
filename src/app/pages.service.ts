@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { page } from './page';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {environment} from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PagesService {
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:3000/getdata/pages';
-  findUrl = 'http://localhost:3000/getdata/page/';
-  head = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  url     = `${environment.hostUrl}:${environment.port}/getdata/pages`;
+  findUrl = `${environment.hostUrl}:${environment.port}/getdata/page/`;
+  head    = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addPages(p: page): Observable<page> {
     return this.http.post<page>(this.url, p, this.head);

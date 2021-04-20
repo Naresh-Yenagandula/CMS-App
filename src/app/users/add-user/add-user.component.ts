@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {user} from '../../users';
 import {UsersService} from '../../users.service';
 
 
@@ -11,30 +10,25 @@ import {UsersService} from '../../users.service';
 })
 export class AddUserComponent implements OnInit {
   userForm:FormGroup;
-  group=['Admin','Registered'];
-  message="";
-
-  users:user={full_name:'',email:'',password:'',group:''};
+  groups=['Admin','Registered'];
+  message=false;
 
   constructor(private fb:FormBuilder, private userService:UsersService) { }
 
-  onSubmit():void{
-    console.log("Data from component",this.users);
-    
-    this.userService.addUsers(this.users).subscribe(data => {
-      console.log(data);
-      this.message = "User Added Sucessfully!";
+  addUser():void{
+    this.userService.addUsers(this.userForm.value).subscribe(data => {
+      this.message = true;
     },error=>{
-      this.message = error.error;
+      this.message = error.error.message;
     });
   }
 
   ngOnInit(): void {
     this.userForm=this.fb.group({
-      full_name:['',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]],
+      name:['',[Validators.required,Validators.minLength(5),Validators.maxLength(20)]],
       email:['',[Validators.required,Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)]],
       password:['',[Validators.required]],
-      groupSelected:['',Validators.required]
+      group:['',Validators.required]
     })
   }
 

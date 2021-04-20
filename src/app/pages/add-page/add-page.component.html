@@ -1,11 +1,11 @@
-<div style="padding-left: 20px;">
+<div style="padding-left: 20px;" *ngIf="!message">
   <h3>Add Page</h3>
-  <form class="tp-form" (ngSubmit)="addForm.valid && onSubmit()" [formGroup]='addForm' style="text-align: center;"
+  <form class="tp-form" (ngSubmit)="addForm.valid && addPage()" [formGroup]='addForm' style="text-align: center;"
     autocomplete="off">
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Page Title</mat-label>
-      <input matInput formControlName='title' pattern="[a-zA-Z0-9\s]+" [(ngModel)]=pages.title>
+      <input matInput formControlName='title' pattern="[a-zA-Z0-9\s]+">
       <mat-error *ngIf="addForm.get('title').errors?.required">Title is Required</mat-error>
       <mat-error *ngIf="addForm.get('title').errors?.maxlength">Title should not have more than 15 characters
       </mat-error>
@@ -15,20 +15,27 @@
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Category</mat-label>
-      <mat-select formControlName='categorySelected' [(ngModel)]=pages.category>
-        <mat-option *ngFor="let cat of category" [value]="cat">{{cat}}</mat-option>
+      <mat-select formControlName='category'>
+        <mat-option *ngFor="let cat of categorys" [value]="cat">{{cat}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="addForm.get('categorySelected').errors?.required">You must make a selection</mat-error>
+      <mat-error *ngIf="addForm.get('category').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Choose Author</mat-label>
-      <mat-select formControlName='authorSelected' [(ngModel)]=pages.author>
-        <mat-option *ngFor="let name of author" [value]="name">{{name}}</mat-option>
+      <mat-select formControlName='author'>
+        <mat-option *ngFor="let name of authors" [value]="name">{{name}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="addForm.get('authorSelected').errors?.required">You must make a selection</mat-error>
+      <mat-error *ngIf="addForm.get('author').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
     <button type="submit" mat-raised-button class="btn-color">Add Page</button>
-    <p *ngIf="message">{{message}}</p>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">Page Added!</h3>
+    </div>
+  </div>
 </div>

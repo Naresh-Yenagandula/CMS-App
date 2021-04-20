@@ -1,13 +1,16 @@
-<div style="padding-left: 20px;">
+<div style="padding-left: 20px;" *ngIf="!message">
   <h3>Update User Account</h3>
-  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" class="tp-form" style="text-align: center;" autocomplete="off">
+  <form [formGroup]="userForm" (ngSubmit)="userForm.valid && updateUser()" class="tp-form" style="text-align: center;"
+    autocomplete="off">
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Full Name</mat-label>
-      <input matInput formControlName='full_name' pattern="[A-Za-z\s]+">
-      <mat-error *ngIf="userForm.get('full_name').errors?.required">Full Name is Required</mat-error>
-      <mat-error *ngIf="userForm.get('full_name').errors?.minlength">Full Name must be at least 5 characters</mat-error>
-      <mat-error *ngIf="userForm.get('full_name').errors?.maxlength">Full Name should not have more than 20 characters</mat-error>
-      <mat-error *ngIf="userForm.get('full_name').errors?.pattern">Numbers and Special characters are not allowed</mat-error>
+      <input matInput formControlName='name' pattern="[A-Za-z\s]+">
+      <mat-error *ngIf="userForm.get('name').errors?.required">Full Name is Required</mat-error>
+      <mat-error *ngIf="userForm.get('name').errors?.minlength">Full Name must be at least 5 characters</mat-error>
+      <mat-error *ngIf="userForm.get('name').errors?.maxlength">Full Name should not have more than 20 characters
+      </mat-error>
+      <mat-error *ngIf="userForm.get('name').errors?.pattern">Numbers and Special characters are not allowed
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Enter Email</mat-label>
@@ -17,11 +20,19 @@
     </mat-form-field>
     <mat-form-field appearance='outline' class="tp-full-width">
       <mat-label>Group</mat-label>
-      <mat-select formControlName='groupSelected'>
+      <mat-select formControlName='group'>
         <mat-option *ngFor='let name of group' [value]="name">{{name}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="userForm.get('groupSelected').errors?.required">You must make a selection</mat-error>
+      <mat-error *ngIf="userForm.get('group').errors?.required">You must make a selection</mat-error>
     </mat-form-field>
     <button type="submit" mat-raised-button class="btn-color">Update User</button>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">User Updated!</h3>
+    </div>
+  </div>
 </div>

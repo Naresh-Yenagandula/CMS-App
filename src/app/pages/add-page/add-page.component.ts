@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PagesService } from '../../pages.service';
-import { page } from '../../page';
 
 @Component({
   selector: 'app-add-page',
@@ -10,30 +9,24 @@ import { page } from '../../page';
 })
 export class AddPageComponent implements OnInit {
   addForm: FormGroup;
-  pages?: page = { title: '', category: '', author: '' };
-  message = "";
+  message = false;
 
-  category = ['category one', 'category two', 'category three'];
-  author = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
+  categorys = ['category one', 'category two', 'category three'];
+  authors = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
 
   constructor(private fb: FormBuilder, private pageService: PagesService) { }
 
-  onSubmit(): void {
-    console.log(this.pages);
-    
-    this.pageService.addPages(this.pages).subscribe((data) => {
-      console.log(data);
-      this.message = "Page Added Sucessfully!";
-    }
-    );
+  addPage(): void {
+    this.pageService.addPages(this.addForm.value).subscribe((data) => {
+      this.message = true;
+    });
   }
 
   ngOnInit(): void {
     this.addForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-      categorySelected: ['', [Validators.required]],
-      authorSelected: ['', [Validators.required]]
+      category: ['', [Validators.required]],
+      author: ['', [Validators.required]]
     })
   }
-
 }

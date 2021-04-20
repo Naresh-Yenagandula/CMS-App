@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {PagesService} from "../../pages.service";
-import {page} from '../../page';
 
 @Component({
   selector: 'app-get-pages',
@@ -9,22 +8,34 @@ import {page} from '../../page';
   styleUrls: ['./get-pages.component.css']
 })
 export class GetPagesComponent implements OnInit {
-  pages:page[]=[];
+  pages:any=[];
+  pageNo:number =1;
+  limit:number=5;
+  total:number; 
+
   constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
 
-  getPages():void{
-     this.pageService.getPages().subscribe((info)=>{
-      this.pages = info.map((data)=>({
-        title:data.title,
-        category:data.category,
-        author:data.author
-      }))
+  getPages(pageNo):void{
+    let offset = (pageNo-1)*this.limit;
+     this.pageService.getPages(offset).subscribe((info)=>{
+        this.pages=info;
     });
+    this.total = this.pages.no;
   }
+
+ navigate(p):void{
+   this.router.navigate(['pages/get/'+p]);
+   this.getPages(p);
+   this.pageNo=p;
+ }
+ update(id):void{
+   this.router.navigate(['pages/updatePage/'+id]);
+ }
+ delete(id):void{
+   this.router.navigate(['pages/deletePage/'+id]);
+ }
   ngOnInit(): void {
-    this.getPages();
-  }
-  updatePage():void{
-    this.router.navigate(['updatePage'],{relativeTo:this.route});
+    this.pageNo = parseInt(this.route.snapshot.paramMap.get('no'));
+    this.getPages(this.pageNo);
   }
 }

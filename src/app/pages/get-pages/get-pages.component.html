@@ -1,47 +1,33 @@
-<table id="sort-table" class="table table-striped tablesorter">
-   <thead>
-     <tr>
-       <!-- <th><input type="checkbox" /></th> -->
-       <th>
-         Page Title <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>
-         Category <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>
-         Author <i class="glyphicon glyphicon-chevron-down"></i>
-       </th>
-       <th>Update</th>
-     </tr>
-   </thead>
 
-   <tbody>
-     <tr *ngFor="let page of pages">
-       <!-- <td><input type="checkbox" value={{page.id}}/></td> -->
-       <td>{{page.title}}</td>
-       <td>{{page.category}}</td>
-       <td>{{page.author}}</td>
-       <td (click)="updatePage()"></td>
-     </tr>
-   </tbody>
- </table>
-
- <nav aria-label="Page navigation">
-   <ul class="pagination">
-     <li>
-       <a href="#" aria-label="Previous">
-         <span aria-hidden="true">&laquo;</span>
-       </a>
-     </li>
-     <li><a href="#">1</a></li>
-     <li><a href="#">2</a></li>
-     <li><a href="#">3</a></li>
-     <li><a href="#">4</a></li>
-     <li><a href="#">5</a></li>
-     <li>
-       <a href="#" aria-label="Next">
-         <span aria-hidden="true">&raquo;</span>
-       </a>
-     </li>
-   </ul>
- </nav>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container
+        *ngFor="let row of pages.result | paginate:{itemsPerPage:limit,currentPage:pageNo,totalItems:pages.no}">
+        <tr>
+          <td>{{row.title}}</td>
+          <td>{{row.category}}</td>
+          <td>{{row.author}}</td>
+          <td>
+            <mat-icon (click)='update(row._id)'>edit</mat-icon>
+          </td>
+          <td>
+            <mat-icon (click)="delete(row._id)">delete</mat-icon>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="pull-right">
+    <pagination-controls (pageChange)="navigate($event)" previousLabel="Prev" nextLabel="Next"></pagination-controls>
+  </div>
+</div>

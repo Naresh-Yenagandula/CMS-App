@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { CategoriesService } from 'src/app/categories.service';
 
 @Component({
   selector: 'app-update-categories',
@@ -8,17 +10,36 @@ import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 })
 export class UpdateCategoriesComponent implements OnInit {
   categoryForm:FormGroup;
-  constructor(private fb:FormBuilder) { }
+  message:boolean=false;
+  title = ['category one','category two', 'category three'];
+  constructor(private fb:FormBuilder, private route:ActivatedRoute,private categoryService:CategoriesService) { }
+  updateDetail():void{
+    const id = this.route.snapshot.paramMap.get('id');
+    this.categoryService.upadateCategory(this.categoryForm.value,id).subscribe((data)=>{
+      this.message = true;
+    },(error)=>{
+      this.message = false;
+    })
+  }
+  getCategoryDetail():void{
+    const id = this.route.snapshot.paramMap.get('id');
+    this.categoryService. getCategory(id).subscribe((data)=>{
+      this.categoryForm.setValue({
+        title:data.title,
+      })
+    })
+  }
 
-  onSubmit():void{
+  /* onSubmit():void{
     console.log(this.categoryForm.value);
     
-  }
+  } */
 
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
       title:['',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]]
   })
+  this.getCategoryDetail();
 }
 
 }

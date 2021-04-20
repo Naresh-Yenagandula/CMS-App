@@ -1,45 +1,27 @@
-<!-- <div *ngFor="let m of getUsers()">
-  <p>{{m.full_name}}</p>
-  <p>{{m.email}}</p>
-  <p>{{m.group}}</p>
-</div> -->
-<table id="sort-table" class="table table-striped tablesorter">
-  <thead>
-    <tr>
-      <!-- <th><input type="checkbox"></th> -->
-      <th>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
-      <th>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
-      <th>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let m of users">
-      <!-- <td><input type="checkbox"></td> -->
-      <td>{{m.full_name}}</td>
-      <td>{{m.email}}</td>
-      <td>{{m.group}}</td>
-    </tr>
-
-  </tbody>
-</table>
-
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Group</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of users.result | paginate:{itemsPerPage:limit,currentPage:pNo,totalItems:users.no}">
+        <tr>
+          <td>{{row.name}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.group}}</td>
+          <td><mat-icon (click)="update(row._id)">edit</mat-icon></td>
+          <td><mat-icon (click)="delete(row._id)">delete</mat-icon></td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="pull-right">
+    <pagination-controls (pageChange)="getPage($event)"   previousLabel="Prev" nextLabel="Next" ></pagination-controls>
+  </div>
+</div>

@@ -1,10 +1,10 @@
-<div style="padding-left: 20px">
+<div style="padding-left: 20px" *ngIf="!message">
   <h3>Add Category</h3>
-  <form class="tp-form" style="text-align: center" (ngSubmit)="categoryForm.valid && onSubmit()"
+  <form class="tp-form" style="text-align: center" (ngSubmit)="categoryForm.valid && addCategory()"
     [formGroup]="categoryForm">
     <mat-form-field appearance="outline" class="tp-full-width">
       <mat-label>Enter Category Title</mat-label>
-      <input matInput formControlName="title" [(ngModel)]="cats.title" pattern="[A-Za-z\s]+" />
+      <input matInput formControlName="title" pattern="[A-Za-z\s]+" />
       <mat-error *ngIf="categoryForm.get('title').errors?.required">Category Title is Required</mat-error>
       <mat-error *ngIf="categoryForm.get('title').errors?.minlength">Category must be at least 5 characters</mat-error>
       <mat-error *ngIf="categoryForm.get('title').errors?.maxlength">Category should not have more than 15 characters
@@ -16,6 +16,13 @@
     <button type="submit" mat-raised-button class="btn-color">
       Add Category
     </button>
-    <p *ngIf="message">{{message}}</p>
   </form>
+</div>
+<div class="row" *ngIf="message">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div style="text-align: center; padding: 10px;background-color: rgb(129, 240, 129); border-radius: 30px;">
+      <h3 style="color: white;">Category Added!</h3>
+    </div>
+  </div>
 </div>

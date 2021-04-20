@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {UsersService} from '../../users.service';
-import {user}  from '../../users';
-import {ActivatedRoute,Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-get-users',
@@ -11,26 +9,34 @@ import {ActivatedRoute,Router} from '@angular/router';
 })
 export class GetUsersComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private router:Router,private userService:UsersService) { }
-  users:user[]=[];
+  users :any=[];
+  pNo :number =1;
+  limit :number =5;
+  total:number;
 
-  getUsers():void{
-    this.userService.getUsers().subscribe((info)=>{
-      this.users = info.map((data)=>({
-        full_name:data.full_name,
-        email:data.email,
-        password:data.password,
-        group:data.group
-      }))
+  constructor(private userService:UsersService,private router:Router) { }
+
+  getUsers(p):void{
+    let offset=(p-1)*this.limit;
+    this.userService.getUsers(offset,this.limit).subscribe((info)=>{
+      this.users = info;
     });
-  }
-  
-  ngOnInit(): void {
-    // this.getUsers();
+    this.total = this.users.no;
   }
 
-  updateUser():void{
-    this.router.navigate(['updateUser'],{relativeTo:this.route});
+  getPage(p:number){
+    this.pNo=p;
+    this.getUsers(this.pNo);
+  }
+  update(id):void{
+    this.router.navigate(['users/updateUser/'+id]);
+  }
+  delete(id):void{
+    this.router.navigate(['users/deleteUser/'+id]);
+  }
+
+  ngOnInit(): void {
+    this.getPage(this.pNo);
   }
 
 }

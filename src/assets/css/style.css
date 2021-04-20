@@ -19,3 +19,7 @@ footer{
     background-color: #1f87c2;
     color: white;
 }
+.actions{
+    float: right;
+    margin-top: 20px;
+}

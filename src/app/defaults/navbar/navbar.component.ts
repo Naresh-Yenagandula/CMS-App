@@ -9,16 +9,26 @@ import { Router } from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
   name: String = "";
-  group:String = "";
+  group: String = "";
   constructor(private userService: UsersService, private router: Router) { }
   getName(): void {
-    this.userService.getName().subscribe((data) => {  
+    this.userService.getName().subscribe((data) => {
       this.name = data.name.name;
     },
       (error) => {
-        this.router.navigate(['login'],{skipLocationChange:true})
+        this.router.navigate(['login'], { skipLocationChange: true })
       }
     )
+  }
+
+  logout(): boolean {
+    try {
+      localStorage.removeItem('token');
+      this.router.navigate(['login'])
+      return true;
+    } catch (error) {
+         return false;
+    }
   }
 
   ngOnInit(): void {

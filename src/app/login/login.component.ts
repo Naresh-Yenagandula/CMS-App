@@ -15,14 +15,12 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthLoginService) { }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
       this.authService.loginUser(this.loginForm.value).subscribe(result => {
         localStorage.setItem('token', result);
         this.router.navigate(['dashboard']);
       }, error => {
         this.message = error.error.message;
       });
-    }
   }
 
   ngOnInit(): void {

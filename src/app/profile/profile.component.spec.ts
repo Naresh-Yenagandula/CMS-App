@@ -35,7 +35,7 @@ describe('ProfileComponent', () => {
     expect(component.get()).toBeTruthy();
   })
 
-  it('change password should return true',()=>{
+  it('change password should be return true',()=>{
     expect(component.changePassword()).toBeTruthy();
   })
 });

@@ -23,6 +23,7 @@ export class AddPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //form validation
     this.addForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       category: ['', [Validators.required]],

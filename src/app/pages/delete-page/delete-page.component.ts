@@ -9,13 +9,11 @@ import { PagesService } from '../../pages.service';
 })
 export class DeletePageComponent implements OnInit {
   message: boolean = false;
-  constructor(
-    private pageService: PagesService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private pageService: PagesService,private route: ActivatedRoute) {}
 
   deletePage(): void {
     if (confirm('Are you sure to delete this record ?') == true) {
+      //gets id from url
       const id = this.route.snapshot.paramMap.get('id');
       this.pageService.deletePage(id).subscribe((data) => {
         this.message = true;

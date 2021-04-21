@@ -18,12 +18,9 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(loginDetails).subscribe(result => {
       localStorage.setItem('token', result);
       this.router.navigate(['dashboard']);
-      // return true;
     }, error => {
       this.message = error.error.message;
-      // return false;
-    });
-    // return false;
+    })
   }
 
   ngOnInit(): void {

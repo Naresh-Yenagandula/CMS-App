@@ -14,12 +14,14 @@ export class DashboardComponent implements OnInit {
 
   constructor(private pageService:PagesService,private userService:UsersService) { }
   
+  //get latest pages
   getLatestPages():void{
     this.pageService.getLatestPages().subscribe((data)=>{
       this.pages = data;
     })
   }
 
+  //get latest users
   getLatestUsers():void{
     this.userService.getLatestUsers().subscribe((data)=>{
       this.users = data;

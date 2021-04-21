@@ -10,12 +10,14 @@ import { PagesService } from "../../pages.service";
 })
 export class UpdatePageComponent implements OnInit {
   updateForm: FormGroup;
-  message:boolean=false;
+  message: boolean = false;
 
   categorys = ['category one', 'category two', 'category three'];
   authors = ['John Wick', 'Vicky Nash', 'Jenni lora', 'Austen Paige'];
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private pageService: PagesService) { }
 
+
+  //update Page
   updateDetail(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.pageService.updatePage(this.updateForm.value, id).subscribe((data) => {
@@ -24,6 +26,8 @@ export class UpdatePageComponent implements OnInit {
       this.message = false;
     })
   }
+
+  //gets page details by Id
   getPageDetail(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.pageService.getPage(id).subscribe((data) => {
@@ -36,6 +40,7 @@ export class UpdatePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Form validation
     this.updateForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       category: ['', [Validators.required]],

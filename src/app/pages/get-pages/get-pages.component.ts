@@ -1,6 +1,6 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import {ActivatedRoute,Router} from '@angular/router';
-import {PagesService} from "../../pages.service";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PagesService } from "../../pages.service";
 
 @Component({
   selector: 'app-get-pages',
@@ -8,37 +8,44 @@ import {PagesService} from "../../pages.service";
   styleUrls: ['./get-pages.component.css']
 })
 export class GetPagesComponent implements OnInit {
-  pages:any=[];
-  pageNo:number =1;
-  limit:number=5;
-  total:number; 
+  pages: any = [];
+  pageNo: number = 1;
+  limit: number = 5;
+  total: number;
 
-  constructor(private route:ActivatedRoute,private router:Router,private pageService:PagesService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private pageService: PagesService) { }
 
-  getPages(pageNo):void{
-    let offset = (pageNo-1)*this.limit;
-     this.pageService.getPages(offset).subscribe((info)=>{
-        this.pages=info;
+  //gets page by calculating offset
+  getPages(pageNo): void {
+    let offset = (pageNo - 1) * this.limit;
+    this.pageService.getPages(offset).subscribe((info) => {
+      this.pages = info;
     });
     this.total = this.pages.no;
   }
 
- navigate(p):void{
-   this.router.navigate(['pages/get/'+p]);
-   this.getPages(p);
-   this.pageNo=p;
- }
- update(id):void{
-   this.router.navigate(['pages/updatePage/'+id]);
- }
- delete(id):void{
-   this.router.navigate(['pages/deletePage/'+id]);
- }
+  //pagination navigate
+  navigate(p): void {
+    this.router.navigate(['pages/get/' + p]);
+    this.getPages(p);
+    this.pageNo = p;
+  }
+
+  //navigate to update page
+  update(id): void {
+    this.router.navigate(['pages/updatePage/' + id]);
+  }
+
+  //navigate to delete page
+  delete(id): void {
+    this.router.navigate(['pages/deletePage/' + id]);
+  }
+  
   ngOnInit(): void {
     this.pageNo = parseInt(this.route.snapshot.paramMap.get('no'));
-    if(isNaN(this.pageNo)){
+    if (isNaN(this.pageNo)) {
       this.getPages(1);
-    }else{
+    } else {
       this.getPages(this.pageNo);
     }
   }

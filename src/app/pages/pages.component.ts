@@ -9,6 +9,8 @@ import {ActivatedRoute,Router} from '@angular/router';
 export class PagesComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private router:Router) { }
+
+  //navigate to add page
   addPage():void{
     this.router.navigate(['addPage'],{relativeTo:this.route})
   }

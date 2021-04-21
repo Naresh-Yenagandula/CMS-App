@@ -11,10 +11,10 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  url         = `${environment.hostUrl}:${environment.port}/api/user/register`;
-  urlInfo     = `${environment.hostUrl}:${environment.port}/verify/data`;
-  getDataUrl  = `${environment.hostUrl}:${environment.port}/getData/users`;
-  findUrl     = `${environment.hostUrl}:${environment.port}/getdata/user/`;
+  url         = `${environment.hostUrl}/api/user/register`;
+  urlInfo     = `${environment.hostUrl}/verify/data`;
+  getDataUrl  = `${environment.hostUrl}/getData/users`;
+  findUrl     = `${environment.hostUrl}/getdata/user/`;
   head        = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addUsers(u: user): Observable<user> {

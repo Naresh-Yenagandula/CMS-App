@@ -9,8 +9,8 @@ import {environment} from '../environments/environment';
 })
 export class CategoriesService {
   constructor(private http: HttpClient) {}
-  url     = `${environment.hostUrl}:${environment.port}/getdata/categories`;
-  findUrl = `${environment.hostUrl}:${environment.port}/getdata/category/`;
+  url     = `${environment.hostUrl}/getdata/categories`;
+  findUrl = `${environment.hostUrl}/getdata/category/`;
   head    = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addcategory(c: category): Observable<category> {

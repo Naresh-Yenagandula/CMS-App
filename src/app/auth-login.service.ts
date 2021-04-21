@@ -8,7 +8,7 @@ import {environment} from '../environments/environment';
 })
 export class AuthLoginService {
   constructor(private http: HttpClient) { }
-  url   = `${environment.hostUrl}:${environment.port}/api/user/login`;
+  url   = `${environment.hostUrl}/api/user/login`;
   head  = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   loginUser(data): Observable<any> {

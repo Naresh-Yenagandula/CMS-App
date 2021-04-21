@@ -27,4 +27,16 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  // it('should return true after login',async ()=>{
+  //   var data = {"email":"admin@gmail.com","password":"Admin123##"};
+  //   const result = await component.onSubmit(data);
+  //   expect(result).toBeTruthy();
+  // })
+
+  // it('should return message length zero',()=>{
+  //   var data = {"email":"admin@gmail.com","password":"Admin123##"};
+  //   component.onSubmit(data);
+  //   expect(component.message.length).toBeLessThan(1);
+  // });
 });

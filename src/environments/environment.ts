@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  hostUrl:"http://localhost",
-  port:3000,
+  hostUrl:"http://localhost:3000",
   envName:"Local"
 };
 

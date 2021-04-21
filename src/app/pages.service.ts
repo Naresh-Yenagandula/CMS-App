@@ -9,8 +9,8 @@ import {environment} from '../environments/environment'
 })
 export class PagesService {
   constructor(private http: HttpClient) { }
-  url     = `${environment.hostUrl}:${environment.port}/getdata/pages`;
-  findUrl = `${environment.hostUrl}:${environment.port}/getdata/page/`;
+  url     = `${environment.hostUrl}/getdata/pages`;
+  findUrl = `${environment.hostUrl}/getdata/page/`;
   head    = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   addPages(p: page): Observable<page> {

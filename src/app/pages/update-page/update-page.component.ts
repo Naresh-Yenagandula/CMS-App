@@ -23,7 +23,8 @@ export class UpdatePageComponent implements OnInit {
     this.pageService.updatePage(this.updateForm.value, id).subscribe((data) => {
       this.message = true;
     }, (error) => {
-      this.message = false;
+      console.log(error);
+      ;
     })
   }
 
@@ -36,6 +37,8 @@ export class UpdatePageComponent implements OnInit {
         category: data.category,
         author: data.author
       })
+    },(error)=>{
+      console.log(error);
     })
   }
 

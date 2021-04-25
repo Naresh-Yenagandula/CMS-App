@@ -18,7 +18,7 @@ export class GetUsersComponent implements OnInit {
 
   getUsers(p): void {
     let offset = (p - 1) * this.limit;
-    this.userService.getUsers(offset,).subscribe((info) => {
+    this.userService.getUsers(offset).subscribe((info) => {
       this.users = info;
     });
     this.total = this.users.no;

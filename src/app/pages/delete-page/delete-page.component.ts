@@ -17,6 +17,8 @@ export class DeletePageComponent implements OnInit {
       const id = this.route.snapshot.paramMap.get('id');
       this.pageService.deletePage(id).subscribe((data) => {
         this.message = true;
+      },(error)=>{
+        console.log(error);
       });
     }
   }

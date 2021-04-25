@@ -16,9 +16,12 @@ export class AddPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private pageService: PagesService) { }
 
+  //add page
   addPage(): void {
     this.pageService.addPages(this.addForm.value).subscribe((data) => {
       this.message = true;
+    },(error)=>{
+      console.log(error);
     });
   }
 

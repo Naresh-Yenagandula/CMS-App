@@ -19,7 +19,7 @@ export class AddUserComponent implements OnInit {
     this.userService.addUsers(this.userForm.value).subscribe(data => {
       this.message = true;
     },error=>{
-      this.message = error.error.message;
+      this.message = false;
     });
   }
 
